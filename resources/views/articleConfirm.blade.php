@@ -1,5 +1,5 @@
 <!-- 確認画面 (confirm.blade.php) -->
-<form action="" method="POST">
+<form action="{{ route('article.add') }}" method="POST">
   @csrf
   <!-- タイトル確認 -->
   <div class="form-group">
