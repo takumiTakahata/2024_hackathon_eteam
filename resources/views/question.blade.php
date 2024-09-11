@@ -19,7 +19,12 @@
 
             <div class="form-group">
                 <label for="title">▶ 分類タグ</label>
-                
+                @foreach ($Tags as $Tags)
+                <tr>
+                    <td>{{$Tags->name}}</td>
+                </tr>
+                @endforeach
+
             </div>
 
             <div class="form-group">
