@@ -4,24 +4,35 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateQuestionTagTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('question_tag', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('question_tags', function (Blueprint $table) {
+            $table->id();  // プライマリーキー
+            $table->unsignedBigInteger('question_id');  // questionsテーブルのidを参照
+            $table->unsignedBigInteger('tags_id');       // tagsテーブルのidを参照
+
+            // 外部キー制約
+            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
+            $table->foreign('tags_id')->references('id')->on('tags')->onDelete('cascade');
+
+            $table->timestamps();  // created_at, updated_atのタイムスタンプ
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('question_tag');
+        Schema::dropIfExists('question_tags');
     }
-};
+}
