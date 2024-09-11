@@ -16,5 +16,32 @@
         border-top: 2px solid #80DCF9;
         border-bottom: 2px solid #80DCF9; 
     }
-
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    article{
+        text-align: center;
+        background-color: #FFFFFF;
+        width: 340px;
+        margin: 0 auto;
+    }
+    .title{
+        font-size: 20px;
+        display: inline;
+    }
+    .posted_on{
+        font-size: 12px;
+        display: inline;
+    }
+    .tag{
+        font-size: 14px;
+        display: inline;
+    }
+    .contents{
+        width: 280px;
+        margin:0 auto;
+        font-size: 16px;
+        word-break: break-all;
+    }
 }
