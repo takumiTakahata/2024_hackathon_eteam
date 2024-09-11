@@ -1,45 +1,31 @@
 <h1>記事の投稿</h1>
-<div class="container">
-    <h2>記事を投稿する</h2>
-    
-    <!-- エラーメッセージの表示 -->
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<form action="{{route('article.comfirm')}}" method="POST">
+  @csrf
+  <!-- タイトル入力 -->
+  <div class="form-group">
+    <label for="title">記事タイトル</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="タイトルを入力してください" required>
+  </div>
 
-    <!-- 記事投稿フォーム -->
-    <form action="{{ route('articles.store') }}" method="POST">
-        @csrf
+  <!-- タグ選択（複数可） -->
+  <div class="form-group">
+    <label for="tags">分類タグ</label>
+    <div>
+      @foreach ($tags as $tag)
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+        <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+      </div>
+      @endforeach
+    </div>
+  </div>
 
-        <!-- 記事タイトル -->
-        <div class="form-group">
-            <label for="title">タイトル</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
-        </div>
+  <!-- 内容入力 -->
+  <div class="form-group">
+    <label for="content">投稿内容</label>
+    <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
+  </div>
 
-        <!-- タグ (複数選択) -->
-        <!-- <div class="form-group">
-            <label for="tags">タグ</label>
-            <select class="form-control" id="tags" name="tags[]" multiple>
-                @foreach($tags as $tag)
-                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                @endforeach
-            </select>
-        </div> -->
-
-        <!-- 投稿内容 -->
-        <div class="form-group">
-            <label for="content">投稿内容</label>
-            <textarea class="form-control" id="content" name="content" rows="8" required>{{ old('content') }}</textarea>
-        </div>
-
-        <!-- 送信ボタン -->
-        <button type="submit" class="btn btn-primary">投稿する</button>
-    </form>
-</div>
+  <!-- 送信ボタン -->
+  <button type="submit" class="btn btn-primary">投稿</button>
+</form>
