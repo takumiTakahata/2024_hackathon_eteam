@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* スマホ画面用のCSS */
+@media only screen and (max-width: 600px) {
+    main{
+        background-color: #F0FFFF;
+    }
+    footer,header{
+        background-color: #6093F8;
+    }
+    .explanation{
+        width: 280px;
+        height: 75px;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        font-size: 16px;
+            border-top: 2px solid #80DCF9;
+            border-bottom: 2px solid #80DCF9; 
+    }
+
+}
