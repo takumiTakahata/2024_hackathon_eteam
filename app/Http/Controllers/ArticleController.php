@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\Articles_Tag;
 
 class ArticleController extends Controller
 {
@@ -33,5 +34,31 @@ class ArticleController extends Controller
             'tags' => $tags,
             'tag_ids' => $validatedData['tags'],
         ]);
+    }
+
+    public function articleAdd(Request $request)
+    {
+        // バリデーション
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'tags' => 'required|array',
+        ]);
+
+        // 記事を保存
+        $article = new Article();
+        $article->title = $validatedData['title'];
+        $article->text = $validatedData['content'];
+        $article->save();
+
+        // 記事とタグの中間テーブルに保存
+        foreach ($validatedData['tags'] as $tagId) {
+            Articles_Tag::create([
+                'articles_id' => $article->id,
+                'tags_id' => $tagId,
+            ]);
+        }
+
+        return redirect()->route('article_list');
     }
 }
