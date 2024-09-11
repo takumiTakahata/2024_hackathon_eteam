@@ -14,20 +14,28 @@
         <p class="explanation">一人暮らしに苦労している方々の悩みの解決や生活を充実させることができるサイトです。</p>
         <h1>おすすめの一人暮らしテクニックの記事</h1>
         <article>
-            <p>記事タイトル1</p>
-            <p>投稿日</p>
-            <p>タグ</p>
-            <p>記事内容1</p>
+            <p class="title">記事タイトル1</p>
+            <p class="posted_on">投稿日</p>
+            <div class="tag_list">
+                <p class="tag">タグ</p>
+                <p class="tag">タグ</p>
+                <p class="tag">タグ</p>
+            </div>
+            <p class="contents">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
             <video controls width="250">
                 <source src="" type="video/webm"/>
             </video> 
         </article>
         <h1>おすすめの一人暮らしの悩みを解決する記事</h1>
         <article>
-            <p>記事タイトル2</p>
-            <p>投稿日</p>
-            <p>タグ</p>
-            <p>記事内容2</p>
+            <p class="title">記事タイトル2</p>
+            <p class="posted_on">投稿日</p>
+            <div class="tag_list">
+                <p class="tag">タグ</p>
+                <p class="tag">タグ</p>
+                <p class="tag">タグ</p>
+            </div>
+            <p class="contents">記事内容2</p>
             <video controls width="250">
                 <source src="" type="video/webm"/>
             </video> 
