@@ -40,6 +40,14 @@
                 <p>aaaaaaaaaaa</p>
             </details>
         </article>
+                <article>
+            <details>
+                <summary>投稿日</summary>
+                <summary>タイトル</summary>
+                <summary>タグ</summary>
+                <p>aaaaaaaaaaa</p>
+            </details>
+        </article>
         <p class="recommendation">おすすめの一人暮らしの</p>
         <p class="recommendation">悩みを解決する記事</p>
         <article>
