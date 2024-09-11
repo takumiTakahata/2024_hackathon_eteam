@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Tag;
+
 class ArticleController extends Controller
 {
-    public function index()
+    public function articleCreate(Request $request)
     {
-        $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        $tags = Tag::all();
+        return view('article', ['tags' => $tags]);
     }
 }
