@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/top.css">
     <title>ページTOP</title>
 </head>
@@ -11,8 +12,13 @@
         <p>アプリ名</p>
     </header>
     <main>
-        <p class="explanation">一人暮らしに苦労している方々の悩みの解決や生活を充実させることができるサイトです。</p>
-        <h1>おすすめの一人暮らしテクニックの記事</h1>
+        <div class="explanation">
+            <p>一人暮らしに苦労している方々の</p>
+            <p>悩みの解決や生活を充実させる</p>
+            <p>ことができるサイトです。</p>
+        </div>
+        <p class="recommendation">おすすめの一人暮らし</p>
+        <p class="recommendation">テクニックの記事</p>
         <article>
             <p class="title">記事タイトル1</p>
             <p class="posted_on">投稿日</p>
@@ -26,7 +32,16 @@
                 <source src="" type="video/webm"/>
             </video> 
         </article>
-        <h1>おすすめの一人暮らしの悩みを解決する記事</h1>
+        <article>
+            <details>
+                <summary>投稿日</summary>
+                <summary>タイトル</summary>
+                <summary>タグ</summary>
+                <p>aaaaaaaaaaa</p>
+            </details>
+        </article>
+        <p class="recommendation">おすすめの一人暮らしの</p>
+        <p class="recommendation">悩みを解決する記事</p>
         <article>
             <p class="title">記事タイトル2</p>
             <p class="posted_on">投稿日</p>
