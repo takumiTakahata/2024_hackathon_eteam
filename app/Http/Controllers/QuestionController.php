@@ -1,35 +1,64 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Question; // 修正
+use App\Models\Question;
 use App\Models\Tag;
-use ValidatesRequests;
+use App\Models\Question_Tag;
 
 class QuestionController extends Controller
 {
-    public function index(Request $request)
+    public function questionCreate(Request $request)
     {
-        $Tags = Tag::all();
-        return view('question', ['Tags' => $Tags]);
+        $tags = Tag::all();
+        return view('question', ['tags' => $tags]);
     }
 
-    public function store(Request $request)
+    public function questionConfirm(Request $request)
     {
-        $this->validate($request, Question::$rules);
+        // バリデーション
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'tags' => 'required|array',
+        ]);
 
-        $question = new Question;
-        
-        $form = $request->all();
-        unset($form['_token']);
-        
-        $question->fill($form)->save();
+        // タグ情報を取得
+        $tags = Tag::whereIn('id', $validatedData['tags'])->get();
 
-        return redirect()->route('question.show');
+        // 確認画面にデータを渡す
+        return view('questionConfirm', [
+            'title' => $validatedData['title'],
+            'content' => $validatedData['content'],
+            'tags' => $tags,
+            'tag_ids' => $validatedData['tags'],
+        ]);
     }
 
-    public function show()
+    public function questionAdd(Request $request)
     {
-        return view('show'); 
+        // バリデーション
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'tags' => 'required|array',
+        ]);
+
+        // 記事を保存
+        $question = new Question();
+        $question->title = $validatedData['title'];
+        $question->text = $validatedData['content'];
+        $question->save();
+
+        // 記事とタグの中間テーブルに保存
+        foreach ($validatedData['tags'] as $tagId) {
+            Question_Tag::create([
+                'Question_id' => $question->id,
+                'tags_id' => $tagId,
+            ]);
+        }
+
+        return redirect()->route('question_list');
     }
 }
