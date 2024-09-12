@@ -17,3 +17,4 @@ Route::get('/question/{id}', [QuestionController::class, 'show'])->name('questio
 Route::get('/add/article/', [ArticleController::class, 'articleCreate'])->name('articleCreate');
 Route::post('/comfirm/article/', [ArticleController::class, 'articleConfirm'])->name('article.comfirm');
 Route::post('/articles/add', [ArticleController::class, 'articleAdd'])->name('article.add');
+Route::post('/question/{id}/answer', [QUestionController::class, 'storeAnswer'])->name('answer.store');
