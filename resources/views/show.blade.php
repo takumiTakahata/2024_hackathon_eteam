@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投稿内容の表示</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>投稿内容の表示</h1>
+    <!-- 確認画面 (confirm.blade.php) -->
+<form action="{{ route('question.add') }}" method="POST">
+  @csrf
+  <!-- タイトル確認 -->
+  <div class="form-group">
+    <label for="title">タイトル</label>
+    <p>{{ $title }}</p>
+    <input type="hidden" name="title" value="{{ $title }}">
+  </div>
 
-        <div class="question">
-            <h2>知恵袋タイトル</h2>
-            <p>{{ $question->title }}</p>
+  <!-- 内容確認 -->
+  <div class="form-group">
+    <label for="content">内容</label>
+    <p>{{ $content }}</p>
+    <input type="hidden" name="content" value="{{ $content }}">
+  </div>
 
-            <h2>分類タグ</h2>
-            <ul>
-                @foreach ($question->tags as $tag)
-                    <li>{{ $tag->name }}</li>
-                @endforeach
-            </ul>
+  <!-- タグ確認 -->
+  <div class="form-group">
+    <label for="tags">タグ</label>
+    <ul>
+      @foreach ($tags as $tag)
+      <li>{{ $tag->name }}</li>
+      @endforeach
+    </ul>
+    @foreach ($tag_ids as $tag_id)
+    <input type="hidden" name="tags[]" value="{{ $tag_id }}">
+    @endforeach
+  </div>
 
-            <h2>投稿内容</h2>
-            <p>{{ $question->content }}</p>
-        </div>
+  <!-- 投稿ボタン -->
+  <button type="submit" class="btn btn-success">この知恵袋を投稿する</button>
 
-        <a href="{{ url()->previous() }}">戻る</a>
-    </div>
+</form>
+    
 </body>
 </html>

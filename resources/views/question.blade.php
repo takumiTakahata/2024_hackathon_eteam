@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>知恵袋投稿ページ</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>知恵袋投稿ページ</h1>
+<h1>知恵袋の投稿</h1>
+<form action="{{route('article.comfirm')}}" method="POST">
+  @csrf
+  <div class="form-group">
+    <label for="title">記事タイトル</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="タイトルを入力してください" required>
+  </div>
 
-        <form action="{{ route('question.store') }}" method="POST">
-            @csrf
-
-            <div class="form-group">
-                <label for="title">▶ 知恵袋タイトル</label>
-                <input type="text" id="title" name="title" value="{{ old('title') }}" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label>▶ 分類タグ</label>
-                @foreach ($Tags as $tag)
-                    <div class="form-check">
-                        <input type="checkbox" id="tag_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}" class="form-check-input">
-                        <label for="tag_{{ $tag->id }}" class="form-check-label">{{ $tag->name }}</label>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="form-group">
-                <label for="content">▶ 投稿内容</label>
-                <textarea id="content" name="content" rows="5" class="form-control" required>{{ old('content') }}</textarea>
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">投稿する</button>
-            </div>
-        </form>
+  <!-- タグ選択（複数可） -->
+  <div class="form-group">
+    <label for="tags">分類タグ</label>
+    <div>
+      @foreach ($tags as $tag)
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+        <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+      </div>
+      @endforeach
     </div>
+  </div>
+
+  <!-- 内容入力 -->
+  <div class="form-group">
+    <label for="content">投稿内容</label>
+    <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
+  </div>
+
+  <!-- 送信ボタン -->
+  <button type="submit" class="btn btn-primary">投稿</button>
+</form>
+    
 </body>
 </html>
