@@ -77,15 +77,17 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function storeAnswer(Request $request, $id)
+    public function store(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'answer' => 'required|string',
+            'text' => 'required|string',
         ]);
 
-        $answer = new storeAnswer();
-        $answer->question_id = $id;
-        $answer->answer = $validatedData['answer'];
+        $question = Question::findOrFail($id);
+
+        $answer = new Answer();
+        $answer->question_id = $question->id;
+        $answer->text = $validatedData['text'];
         $answer->save();
 
         return redirect()->route('question.show', ['id' => $id]);

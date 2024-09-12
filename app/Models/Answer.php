@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     use HasFactory;
+    protected $table = 'answer';
 
-    protected $fillable = ['question_id', 'answer'];
+    protected $fillable = ['question_id', 'text'];
 
     public function question()
     {
-        return $this->belongsTo(question::class);
+        return $this->belongsTo(Question::class);
     }
 }
