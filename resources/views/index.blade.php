@@ -34,17 +34,29 @@
         </article>
         <article>
             <details>
-                <summary>投稿日</summary>
-                <summary>タイトル</summary>
-                <summary>タグ</summary>
+                <summary>
+                    <p class="title">記事タイトル1</p>
+                    <p class="posted_on">投稿日</p>
+                    <div class="tag_list">
+                        <p class="tag">タグ</p>
+                        <p class="tag">タグ</p>
+                        <p class="tag">タグ</p>
+                    </div>
+                </summary>
                 <p>aaaaaaaaaaa</p>
             </details>
         </article>
                 <article>
             <details>
-                <summary>投稿日</summary>
-                <summary>タイトル</summary>
-                <summary>タグ</summary>
+                <summary>
+                    <p class="title">記事タイトル1</p>
+                    <p class="posted_on">投稿日</p>
+                    <div class="tag_list">
+                        <p class="tag">タグ</p>
+                        <p class="tag">タグ</p>
+                        <p class="tag">タグ</p>
+                    </div>
+                </summary>
                 <p>aaaaaaaaaaa</p>
             </details>
         </article>

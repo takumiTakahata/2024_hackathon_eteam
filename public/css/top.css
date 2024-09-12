@@ -22,6 +22,7 @@
         text-align: center;
     }
     article{
+        border-radius: 10%;
         text-align: center;
         background-color: #FFFFFF;
         width: 85%;
@@ -49,5 +50,6 @@
     details > summary {
         list-style: none;
         cursor: pointer;
+        display: inline;
     }
 }
