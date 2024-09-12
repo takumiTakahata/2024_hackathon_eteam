@@ -26,6 +26,9 @@
     <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
   </div>
 
+  <label for="youtube_url">YouTube動画URL:</label>
+  <input type="url" name="youtube_url" id="youtube_url" placeholder="https://www.youtube.com/watch?v=xxxxx">
+
   <!-- 送信ボタン -->
   <button type="submit" class="btn btn-primary">投稿</button>
 </form>
