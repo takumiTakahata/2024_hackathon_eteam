@@ -1,4 +1,4 @@
-<!-- resources/views/questiondetail.blade.php -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -27,7 +27,7 @@
     <form action="{{ route('answer.store', $question->id) }}" method="POST">
         @csrf
         <textarea name="text" rows="4" cols="50" required></textarea>
-        <button type="submit">Add Comment</button>
+        <button type="submit">コメントを投稿する</button>
     </form>
 
     <h3>コメント一覧</h3>
