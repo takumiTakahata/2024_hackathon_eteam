@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/top.css">
 <!-- 確認画面 (confirm.blade.php) -->
 <form action="{{ route('article.add') }}" method="POST">
   @csrf
