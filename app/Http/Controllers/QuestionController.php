@@ -63,8 +63,18 @@ class QuestionController extends Controller
     }
     public function show($id)
     {
-        $question = Question::findOrFail($id);
-
-        return view('questiondetail', ['question' => $question]);
+        // 質問とその関連するタグを取得
+        $question = Question::with('tags')->findOrFail($id);
+    
+        // 質問に関連するタグを取得
+        $questiontags = QuestionTag::where('question_id', $id)->get();
+    
+        // questiondetail ビューにデータを渡して表示
+        return view('questiondetail', [
+            'question' => $question,
+            'question_tags' => $questiontags
+        ]);
     }
+    
+
 }
