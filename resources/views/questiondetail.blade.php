@@ -1,4 +1,4 @@
-<!-- resources/views/questiondetail.blade.php -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -22,5 +22,19 @@
             @endforelse
         </ul>
     </div>
+
+    <h2>コメント</h2>
+    <form action="{{ route('answer.store', $question->id) }}" method="POST">
+        @csrf
+        <textarea name="text" rows="4" cols="50" required></textarea>
+        <button type="submit">コメントを投稿する</button>
+    </form>
+
+    <h3>コメント一覧</h3>
+    @foreach ($question->answer as $answer)
+    <div>
+        <p>{{ $answer->text}}</p>
+    </div>
+    @endforeach
 </body>
 </html>
