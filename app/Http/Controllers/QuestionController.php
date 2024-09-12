@@ -73,7 +73,7 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function store(Request $request, $id)
+    public function Answerstore(Request $request, $id)
     {
         $validatedData = $request->validate([
             'text' => 'required|string',
