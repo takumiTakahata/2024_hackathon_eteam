@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* スマホ画面用のCSS */
+@media only screen and (max-width: 600px) {
+    main{
+        padding: 5% 0 5% 0;
+        background-color: #F0FFFF;
+    }
+    footer,header{
+        background-color: #6093F8;
+    }
+    .explanation{
+        text-align: center;
+        width: 85%;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        font-size: 1rem;
+        border-top: 2px solid #80DCF9;
+        border-bottom: 2px solid #80DCF9; 
+    }
+    .recommendation{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    article{
+        border-radius: 10%;
+        text-align: center;
+        background-color: #FFFFFF;
+        width: 85%;
+        margin: 0 auto 5% auto;
+    }
+    .title{
+        font-size: 1.2rem;
+        display: inline;
+    }
+    .posted_on{
+        font-size: 0.8rem;
+        display: inline;
+    }
+    .tag{
+        font-size: 0.85rem;
+        display: inline;
+    }
+    .contents{
+        text-align: center;
+        width: 85%;
+        margin:auto;
+        font-size: 1rem;
+        word-break: break-all;
+    }
+    details > summary {
+        list-style: none;
+        cursor: pointer;
+        display: inline;
+    }
+}
