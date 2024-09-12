@@ -61,4 +61,20 @@ class QuestionController extends Controller
 
         return redirect()->route('question_list');
     }
+    public function show($id)
+    {
+        // 質問とその関連するタグを取得
+        $question = Question::with('tags')->findOrFail($id);
+    
+        // 質問に関連するタグを取得
+        $questiontags = QuestionTag::where('question_id', $id)->get();
+    
+        // questiondetail ビューにデータを渡して表示
+        return view('questiondetail', [
+            'question' => $question,
+            'question_tags' => $questiontags
+        ]);
+    }
+    
+
 }
