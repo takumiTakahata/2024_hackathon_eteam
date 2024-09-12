@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\QuestionTag;
+use App\Models\Answer;
 
 class QuestionController extends Controller
 {
@@ -64,7 +65,7 @@ class QuestionController extends Controller
     public function show($id)
     {
         // 質問とその関連するタグを取得
-        $question = Question::with('tags')->findOrFail($id);
+        $question = Question::with('tags', 'answer')->findOrFail($id);
     
         // 質問に関連するタグを取得
         $questiontags = QuestionTag::where('question_id', $id)->get();
@@ -74,6 +75,22 @@ class QuestionController extends Controller
             'question' => $question,
             'question_tags' => $questiontags
         ]);
+    }
+
+    public function store(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'text' => 'required|string',
+        ]);
+
+        $question = Question::findOrFail($id);
+
+        $answer = new Answer();
+        $answer->question_id = $question->id;
+        $answer->text = $validatedData['text'];
+        $answer->save();
+
+        return redirect()->route('question.show', ['id' => $id]);
     }
     
 
