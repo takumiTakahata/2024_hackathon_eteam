@@ -12,6 +12,7 @@
         <p>アプリ名</p>
     </header>
     <main>
+        <div class="star"></div>
         <div class="explanation">
             <p>一人暮らしに苦労している方々の</p>
             <p>悩みの解決や生活を充実させる</p>
@@ -35,29 +36,35 @@
         <article>
             <details>
                 <summary>
-                    <p class="title">記事タイトル1</p>
-                    <p class="posted_on">投稿日</p>
-                    <div class="tag_list">
-                        <p class="tag">タグ</p>
-                        <p class="tag">タグ</p>
-                        <p class="tag">タグ</p>
+                    <div class="summary-content">
+                        <p class="into_posted_on">投稿日</p>
+                        <p class="into_title">記事タイトル1</p>
+                        <div class="arrow-down"></div>
+                    </div>
+                    <div class="into_tag_list">
+                        <p class="into_tag">タグ</p>
+                        <p class="into_tag">タグ</p>
+                        <p class="into_tag">タグ</p>
                     </div>
                 </summary>
-                <p>aaaaaaaaaaa</p>
+                <p class="contents">aaaaaaaaaaa</p>
             </details>
         </article>
-                <article>
+        <article>
             <details>
                 <summary>
-                    <p class="title">記事タイトル1</p>
-                    <p class="posted_on">投稿日</p>
-                    <div class="tag_list">
-                        <p class="tag">タグ</p>
-                        <p class="tag">タグ</p>
-                        <p class="tag">タグ</p>
+                    <div class="summary-content">
+                        <p class="into_posted_on">投稿日</p>
+                        <p class="into_title">記事タイトル1</p>
+                        <div class="arrow-down"></div>
+                    </div>
+                    <div class="into_tag_list">
+                        <p class="into_tag">タグ</p>
+                        <p class="into_tag">タグ</p>
+                        <p class="into_tag">タグ</p>
                     </div>
                 </summary>
-                <p>aaaaaaaaaaa</p>
+                <p class="contents">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
             </details>
         </article>
         <p class="recommendation">おすすめの一人暮らしの</p>
