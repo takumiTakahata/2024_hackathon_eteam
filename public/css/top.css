@@ -22,7 +22,7 @@
         text-align: center;
     }
     article{
-        border-radius: 10%;
+        border-radius: 8%;
         text-align: center;
         background-color: #FFFFFF;
         width: 85%;
@@ -48,8 +48,36 @@
         word-break: break-all;
     }
     details > summary {
+        width: 80%;
         list-style: none;
         cursor: pointer;
         display: inline;
+    }
+    .into_title{
+        border-bottom: 1px solid;
+        font-size: 1rem;
+        display: inline;
+    }
+    .into_posted_on{
+        /* margin-right: 20%; */
+        text-align: center;
+        font-size: 0.8rem;
+        display: inline;
+    }
+    .into_tag{
+        font-size: 0.85rem;
+        display: inline;
+    }
+    .summary-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .arrow-down {
+        width: 0;
+        height: 0;
+        border-left: 0.8rem solid transparent;
+        border-right: 0.8rem solid transparent;
+        border-top: 0.8rem solid black;
     }
 }
