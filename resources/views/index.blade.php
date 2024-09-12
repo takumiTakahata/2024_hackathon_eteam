@@ -70,7 +70,7 @@
             </details>
         </article>
         <div class="recommendation">
-            <div class="star"></div>
+            <div class="star2"></div>
             <p>おすすめの一人暮らしの</p>
             <p>悩みを解決する記事</p>
         </div>
