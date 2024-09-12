@@ -12,12 +12,19 @@
         text-align: center;
         width: 85%;
         background-color: #FFFFFF;
-        margin: 0 auto;
+        margin: 3% auto 3% auto;
         font-size: 1rem;
         border-top: 2px solid #80DCF9;
         border-bottom: 2px solid #80DCF9; 
     }
     .recommendation{
+        justify-content: center;
+        margin: 0 auto;
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .recommendation >p{
         font-size: 1.2rem;
         text-align: center;
     }
@@ -79,5 +86,44 @@
         border-left: 0.8rem solid transparent;
         border-right: 0.8rem solid transparent;
         border-top: 0.8rem solid black;
+    }
+    .star {
+        position: relative;
+        display: inline-block;
+        color: gold;
+        width: 0;
+        height: 0;
+        border-right: 1em solid transparent;
+        border-bottom: 0.7em solid gold;
+        border-left: 1em solid transparent;
+        transform: rotate(35deg);
+        margin-right:2% ;
+    }
+    .star:before {
+        border-bottom: 0.7em solid gold;
+        border-left: 0.3em solid transparent;
+        border-right: 0.3em solid transparent;
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -0.45em;
+        left: -0.65em;
+        display: block;
+        content: '';
+        transform: rotate(-35deg);
+    }
+    .star:after {
+        position: absolute;
+        display: block;
+        color: gold;
+        top: 0.1em;
+        left: -1em;
+        width: 0;
+        height: 0;
+        border-right: 1em solid transparent;
+        border-bottom: 0.7em solid gold;
+        border-left: 1em solid transparent;
+        transform: rotate(-70deg);
+        content: '';
     }
 }
