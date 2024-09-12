@@ -17,17 +17,17 @@ class QuestionController extends Controller
 
     public function questionConfirm(Request $request)
     {
-        // バリデーション
+        //  バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
             'tags' => 'required|array',
         ]);
 
-        // タグ情報を取得
+        // タグ情報
         $tags = Tag::whereIn('id', $validatedData['tags'])->get();
 
-        // 確認画面にデータを渡す
+        // 確認画面
         return view('questionConfirm', [
             'title' => $validatedData['title'],
             'content' => $validatedData['content'],
@@ -38,20 +38,20 @@ class QuestionController extends Controller
 
     public function questionAdd(Request $request)
     {
-        // バリデーション
+        //  バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
             'tags' => 'required|array',
         ]);
 
-        // 記事を保存
+        // 知恵袋保存
         $question = new Question();
         $question->title = $validatedData['title'];
         $question->text = $validatedData['content'];
         $question->save();
 
-        // 記事とタグの中間テーブルに保存
+        // 中間テーブルに保存
         foreach ($validatedData['tags'] as $tagId) {
             Question_Tag::create([
                 'Question_id' => $question->id,

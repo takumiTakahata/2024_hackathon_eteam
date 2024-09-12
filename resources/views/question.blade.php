@@ -7,14 +7,13 @@
 </head>
 <body>
 <h1>知恵袋の投稿</h1>
-<form action="{{route('article.comfirm')}}" method="POST">
+<form action="{{route('question.show')}}" method="POST">
   @csrf
   <div class="form-group">
     <label for="title">記事タイトル</label>
     <input type="text" class="form-control" id="title" name="title" placeholder="タイトルを入力してください" required>
   </div>
 
-  <!-- タグ選択（複数可） -->
   <div class="form-group">
     <label for="tags">分類タグ</label>
     <div>
@@ -27,13 +26,11 @@
     </div>
   </div>
 
-  <!-- 内容入力 -->
   <div class="form-group">
     <label for="content">投稿内容</label>
     <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
   </div>
 
-  <!-- 送信ボタン -->
   <button type="submit" class="btn btn-primary">投稿</button>
 </form>
     
