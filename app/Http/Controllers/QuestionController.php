@@ -61,4 +61,10 @@ class QuestionController extends Controller
 
         return redirect()->route('question_list');
     }
+    public function show($id)
+    {
+        $question = Question::findOrFail($id);
+
+        return view('questiondetail', ['question' => $question]);
+    }
 }
