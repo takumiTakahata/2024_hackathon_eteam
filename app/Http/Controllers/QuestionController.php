@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\QuestionTag;
+use App\Models\Answer;
 
 class QuestionController extends Controller
 {
@@ -74,6 +75,20 @@ class QuestionController extends Controller
             'question' => $question,
             'question_tags' => $questiontags
         ]);
+    }
+
+    public function storeAnswer(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'answer' => 'required|string',
+        ]);
+
+        $answer = new storeAnswer();
+        $answer->question_id = $id;
+        $answer->answer = $validatedData['answer'];
+        $answer->save();
+
+        return redirect()->route('question.show', ['id' => $id]);
     }
     
 

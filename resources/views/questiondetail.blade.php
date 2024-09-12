@@ -22,5 +22,12 @@
             @endforelse
         </ul>
     </div>
+
+    <h2>コメント</h2>
+    <form action="{{ route('comment.store', $question->id) }}" method="POST">
+        @csrf
+        <textarea name="content" rows="4" cols="50" required></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
 </body>
 </html>
