@@ -28,6 +28,19 @@
     @endforeach
   </div>
 
+  @if ($youtube_url)
+  <input type="hidden" name="youtube_url" value="{{ $youtube_url }}">
+  @php
+  // YouTubeのURLをembed用に変換
+  $youtubeEmbedUrl = str_replace('watch?v=', 'embed/', $youtube_url);
+  @endphp
+
+  <!-- 動画埋め込み -->
+  <div class="youtube-video">
+    <iframe width="560" height="315" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  @endif
+
   <!-- 投稿ボタン -->
   <button type="submit" class="btn btn-success">この記事を投稿する</button>
 
