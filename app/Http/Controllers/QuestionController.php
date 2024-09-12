@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Tag;
-use App\Models\Question_Tag;
+use App\Models\QuestionTag;
 
 class QuestionController extends Controller
 {
@@ -20,7 +20,7 @@ class QuestionController extends Controller
         //  バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required',
+            'text' => 'required',
             'tags' => 'required|array',
         ]);
 
@@ -30,7 +30,7 @@ class QuestionController extends Controller
         // 確認画面
         return view('questionConfirm', [
             'title' => $validatedData['title'],
-            'content' => $validatedData['content'],
+            'text' => $validatedData['text'],
             'tags' => $tags,
             'tag_ids' => $validatedData['tags'],
         ]);
@@ -41,20 +41,20 @@ class QuestionController extends Controller
         //  バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required',
+            'text' => 'required',
             'tags' => 'required|array',
         ]);
 
         // 知恵袋保存
         $question = new Question();
         $question->title = $validatedData['title'];
-        $question->text = $validatedData['content'];
+        $question->text = $validatedData['text'];
         $question->save();
 
         // 中間テーブルに保存
         foreach ($validatedData['tags'] as $tagId) {
-            Question_Tag::create([
-                'Question_id' => $question->id,
+            QuestionTag::create([
+                'question_id' => $question->id,
                 'tags_id' => $tagId,
             ]);
         }

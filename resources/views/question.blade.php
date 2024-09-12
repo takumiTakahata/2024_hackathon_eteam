@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>知恵袋の投稿</h1>
-<form action="{{route('question.show')}}" method="POST">
+<form action="{{route('question.Confirm')}}" method="POST">
   @csrf
   <div class="form-group">
     <label for="title">記事タイトル</label>
@@ -27,8 +27,8 @@
   </div>
 
   <div class="form-group">
-    <label for="content">投稿内容</label>
-    <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
+    <label for="text">投稿内容</label>
+    <textarea class="form-control" id="text" name="text" rows="5" placeholder="内容を入力してください" required></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary">投稿</button>
