@@ -45,9 +45,10 @@
       </div>
   </div>
     <!-- 投稿ボタン -->
+  <div class="button">
     <button type="submit" class="btn btn-success"><p>この記事を投稿する</p></button>
     <button><a href="" class="btn btn-return"><p>投稿画面に戻る</p></a></button>
-
+  </div>
   </form>
 </main>
 <footer>
