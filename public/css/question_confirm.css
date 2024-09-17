@@ -1,0 +1,154 @@
+@charset "UTF-8";
+footer,header{
+  background-color: #6093F8;
+}
+main{
+    padding: 5% 0 5% 0;
+    background-color: #F0FFFF;
+}
+.page_title{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    font-size: 1.2rem;
+    background-color: #FFFFFF;
+    border-left :1.5rem solid #80DCF9;
+    border-bottom:2px solid #80DCF9;
+}
+.confirm{
+    background-color: #FFFFFF;
+    margin: 3% auto 3% auto;
+    width: 80%;
+    height: 70%;
+    text-align: center;
+    border:2px solid #000000;
+}
+.title{
+    width: 90%;
+    text-align: left;
+    font-size: 2rem;
+    margin: 3% auto 3% auto;
+}
+.tag-group{
+    width: 90%;
+    margin: 0 auto 3% auto;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: nowrap;
+    border:2px solid #000000;
+}
+.content{
+  margin-left: 5%;
+  text-align: left;
+  width: 85%;
+  word-break: break-all;
+}
+/* ボタンについての記述 */
+.button{
+    width: 85%;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+    justify-content:space-around;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #000000;
+  border-radius: 0.5rem;
+}
+
+a.btn-return {
+  overflow: hidden;
+
+  padding: 0.5rem 2rem;
+
+  color: #000000;
+  border-radius: 0;
+  background: #FFFFFF;
+}
+
+
+a.btn-return:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 120%;
+  height: 600%;
+
+  content: "";
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+
+  background: #FF0000;
+}
+
+a.btn-return:hover:before {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+a.btn-return p {
+  position: relative;
+}
+button.btn-success{
+  overflow: hidden;
+
+  padding: 0.5rem 2rem;
+
+  color: #000000;
+  border-radius: 0;
+  background: #FFFFFF;
+}
+
+
+button.btn-success:before  {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 120%;
+  height: 700%;
+
+  content: "";
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+
+  background: #0057FF;
+}
+
+button.btn-success:hover:before {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+button.btn-success p {
+  position: relative;
+}
