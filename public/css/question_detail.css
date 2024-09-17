@@ -30,7 +30,7 @@ main{
     font-size: 2rem;
     margin: 3% auto 3% auto;
 }
-.tag-group{
+.tag_group{
     width: 90%;
     margin: 0 auto 3% auto;
     justify-content: space-around;
@@ -51,6 +51,7 @@ textarea{
     border-bottom:2px solid #000000;
 }
 .btn-comment {
+    margin: 1% auto 2% 5%;
     color: #fff;
     border-top: 4px solid #48d6ec;
     border-right: 4px solid #0a4e5f;
@@ -66,4 +67,11 @@ textarea{
   border-right: 4px solid #8ccff9;
   border-bottom: 4px solid #48dbec;
   border-left: 4px solid #0a475f;
+}
+.comment_list{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    background-color: #FFFFFF;
+    border-bottom:2px solid #80DCF9;
 }
