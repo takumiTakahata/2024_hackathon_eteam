@@ -1,27 +1,21 @@
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/article_confirm.css">
 <!-- 確認画面 (confirm.blade.php) -->
+ <header>
+
+ </header>
  <main>
+  <p class="page_title">投稿記事確認</p>
   <div class="confirm">
     <form action="{{ route('article.add') }}" method="POST">
       @csrf
       <!-- タイトル確認 -->
       <div class="form-group">
-        <label for="title">タイトル</label>
         <p class="title">{{ $title }}</p>
         <input type="hidden" name="title" value="{{ $title }}">
       </div>
-
-      <!-- 内容確認 -->
-      <div class="form-group">
-        <label for="content">内容</label>
-        <p class="content">{{ $content }}</p>
-        <input type="hidden" name="content" value="{{ $content }}">
-      </div>
-
       <!-- タグ確認 -->
       <div class="form-group">
-        <label for="tags">タグ</label>
         <ul class="tag-group">
           @foreach ($tags as $tag)
           <li>{{ $tag->name }}</li>
@@ -41,10 +35,14 @@
 
       <!-- 動画埋め込み -->
       <div class="youtube-video">
-        <iframe width="560" height="315" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+        <iframe width="80%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
       </div>
       @endif
-
+      <!-- 内容確認 -->
+      <div class="form-group">
+        <p class="content">{{ $content }}</p>
+        <input type="hidden" name="content" value="{{ $content }}">
+      </div>
   </div>
     <!-- 投稿ボタン -->
     <button type="submit" class="btn btn-success"><p>この記事を投稿する</p></button>
@@ -52,3 +50,6 @@
 
   </form>
 </main>
+<footer>
+  
+</footer>
