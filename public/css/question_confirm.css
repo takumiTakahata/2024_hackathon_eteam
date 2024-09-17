@@ -25,12 +25,12 @@ main{
 }
 .title{
     width: 90%;
+    text-align: left;
+    font-size: 2rem;
     margin: 3% auto 3% auto;
-    font-size: 1rem;
-    border-bottom:2px solid #000000;
 }
 .tag-group{
-    width: 70%;
+    width: 90%;
     margin: 0 auto 3% auto;
     justify-content: space-around;
     display: flex;
@@ -46,6 +46,7 @@ main{
 /* ボタンについての記述 */
 .button{
     width: 85%;
+    height: auto;
     display: flex;
     margin: 0 auto;
     justify-content:space-around;
