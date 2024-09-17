@@ -7,6 +7,7 @@
     <title>質問詳細</title>
 </head>
 <body>
+    <p>{{$question}}</p>
     <h1>質問詳細</h1>
 
     <div>
