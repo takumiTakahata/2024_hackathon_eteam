@@ -1,4 +1,7 @@
 @charset "UTF-8";
+footer,header{
+  background-color: #6093F8;
+}
 main{
     padding: 5% 0 5% 0;
     background-color: #F0FFFF;
@@ -6,7 +9,7 @@ main{
 .page_title{
     margin: 0 auto;
     width: 80%;
-    text-align: center;
+    text-align: left;
     font-size: 1.2rem;
     background-color: #FFFFFF;
     border-left :1.5rem solid #80DCF9;
@@ -16,6 +19,7 @@ main{
     background-color: #FFFFFF;
     margin: 3% auto 3% auto;
     width: 80%;
+    height: 70%;
     text-align: center;
     border:2px solid #000000;
 }
@@ -34,10 +38,10 @@ main{
     border:2px solid #000000;
 }
 .content{
-    margin-left: 5%;
-    text-align: left;
-    width: 85%;
-    word-break: break-all;
+  margin-left: 5%;
+  text-align: left;
+  width: 85%;
+  word-break: break-all;
 }
 /* ボタンについての記述 */
 .button{
