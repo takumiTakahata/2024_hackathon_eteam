@@ -88,11 +88,11 @@ class QuestionController extends Controller
 
         return redirect()->route('question.show', ['id' => $id]);
     }
-    public function index()
+    public function questionindex()
     {
-        $question = Question::with('tags')->paginate(10);
+        $question = Question::with('tags')->get();
 
-        return view('question.index', ['question' => $question]);
+        return view('questionindex', ['question' => $question]);
     }
     
 
