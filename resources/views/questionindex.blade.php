@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>知恵袋一覧</title>
 </head>
 <body>
-@extends('layouts.app')
 
-@section('content')
     <h1>知恵袋一覧</h1>
+
+    <div class="tags-container">
+        <h2>全てのタグ</h2>
+        <ul>
+            @foreach ($tags as $tag)
+                <li>{{ $tag->name }}</li>
+            @endforeach
+        </ul>
+    </div>
 
     <table>
         <thead>
@@ -21,24 +28,24 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($question as $question)
-    <div>
-        <h2>{{ $question->title }}</h2>
-        <p>{{ $question->text }}</p>
-
-        <ul>
-            @foreach ($question->tags as $tag)
-                <li>{{ $tag->name }}</li>
+            @foreach ($questions as $question)
+                <tr>
+                    <td>{{ $question->title }}</td>
+                    <td>{{ $question->text }}</td>
+                    <td>
+                        <ul>
+                            @foreach ($question->tags as $tag)
+                                <li>{{ $tag->name }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>{{ $question->created_at->format('Y-m-d') }}</td>
+                </tr>
             @endforeach
-        </ul>
-    </div>
-@endforeach
         </tbody>
     </table>
 
-    <!-- ページネーションのリンク -->
-    {{ $question->links() }}
-@endsection
+    {{ $questions->links() }}
 
 </body>
 </html>

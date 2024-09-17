@@ -90,10 +90,14 @@ class QuestionController extends Controller
     }
     public function questionindex()
     {
-        $question = Question::with('tags')->get();
-
-        return view('questionindex', ['question' => $question]);
-    }
+        $questions = Question::with('tags')->paginate(10);
+        
     
+        $tags = Tag::all();
 
+    return view('questionindex', [
+        'questions' => $questions,
+        'tags' => $tags
+    ]);}
+    
 }
