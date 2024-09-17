@@ -90,29 +90,20 @@ class QuestionController extends Controller
     }
     public function questionindex(Request $request)
 {
-    $tags = Tag::all();
-
-    $selectedTagIds = $request->input('tags', []);
-
- 
     $query = Question::with('tags');
-
- 
-    if (!empty($selectedTagIds)) {
-        $query->whereHas('tags', function ($query) use ($selectedTagIds) {
-            $query->whereIn('id', $selectedTagIds);
+    
+    if ($request->has('tag_id')) {
+        $query->whereHas('tags', function ($q) use ($request) {
+            $q->where('id', $request->input('tag_id'));
         });
     }
 
- 
     $questions = $query->paginate(10);
+    $tags = Tag::all();
 
-    return view('questionindex', [
-        'questions' => $questions,
-        'tags' => $tags,
-        'selectedTagIds' => $selectedTagIds
-    ]);
+    return view('questionindex', ['questions' => $questions, 'tags' => $tags]);
 }
+
 
     
 }

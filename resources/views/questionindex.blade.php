@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>知恵袋一覧</title>
+    <style>
+        /* ページネーションの矢印を完全に隠す */
+        .pagination .page-item.disabled .page-link::before,
+        .pagination .page-item.next .page-link::before,
+        .pagination .page-item.prev .page-link::before {
+            display: none; /* 矢印アイコンを完全に非表示にする */
+        }
+
+        /* ページネーションの矢印用のリンク要素を完全に削除する */
+        .pagination .page-item.disabled .page-link,
+        .pagination .page-item.next .page-link,
+        .pagination .page-item.prev .page-link {
+            visibility: hidden; /* 矢印リンク自体を非表示にする */
+        }
+    </style>
 </head>
 <body>
 
     <h1>知恵袋一覧</h1>
 
-    <div class="tags-container">
-        <h2>全てのタグ</h2>
-        <ul>
+    <div class="tag-buttons">
+        <form method="GET" action="{{ route('question.index') }}">
             @foreach ($tags as $tag)
-                <li>{{ $tag->name }}</li>
+                <button type="submit" name="tag_id" value="{{ $tag->id }}">
+                    {{ $tag->name }}
+                </button>
             @endforeach
-        </ul>
+        </form>
     </div>
-
 
     <table>
         <thead>
