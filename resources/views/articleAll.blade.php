@@ -8,12 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{ $article -> title}}</p>
-    <p>{{ $article -> text}}</p>
-    <p>{{ $article -> popular}}</p>
-    <p>{{ $article -> movie_url}}</p>
-    <p>{{ $article -> created_at}}</p>
-
-    <p>{{ $article_tag }}</p>
+    <main>
+        <p class="page_title">投稿記事確認</p>
+        <div class="confirm">
+            <!-- タイトル確認 -->
+            <p class="title">{{ $article->title}}</p>
+            <!-- タグ確認 -->
+            @if ($article->movie_url)
+            @php
+            // YouTubeのURLをembed用に変換
+            $youtube_url =$article->movie_url;
+            $youtubeEmbedUrl = str_replace('watch?v=', 'embed/', $youtube_url);
+            @endphp
+            <!-- 動画埋め込み -->
+            <div class="youtube-video">
+                <iframe width="80%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            @endif
+            <!-- 内容確認 -->
+            <p class="content">{{ $article -> text}}</p>
+        </div>
+    </main>
 </body>
 </html>
