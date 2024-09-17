@@ -15,7 +15,7 @@ main{
     border-left :1.5rem solid #80DCF9;
     border-bottom:2px solid #80DCF9;
 }
-.confirm{
+.question{
     background-color: #FFFFFF;
     margin: 3% auto 3% auto;
     width: 80%;
@@ -42,4 +42,8 @@ main{
   text-align: left;
   width: 85%;
   word-break: break-all;
+}
+textarea{
+    background-color: #FFFFFF;
+    border-bottom:2px solid #000000;
 }
