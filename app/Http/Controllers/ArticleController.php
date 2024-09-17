@@ -67,4 +67,24 @@ class ArticleController extends Controller
 
         return redirect('/top');
     }
+
+    public function articleAll($id){
+        $article = Article::Where('id', $id)->first();
+
+        $article_tag = Articles_Tag::where('articles_id', $id)->get();
+        // $id = $article_tag->tags_id;
+        // $article_tag_name = Tag::where('id', $article_tag[0]->tags_id)->get();
+
+        $tags = [];
+
+        foreach($article_tag as $tags_id){
+            $tmp = Tag::where('id', $tags_id->tags_id)->first();
+            
+            array_push($tags, $tmp["name"]);
+        }
+
+        $result = json_encode($tags);
+
+        return view('articleAll', ['article' => $article, 'article_tag' => $result]);
+    }
 }
