@@ -16,6 +16,7 @@ main{
     border-bottom:2px solid #80DCF9;
 }
 .confirm{
+    border-radius: 20px;
     background-color: #FFFFFF;
     margin: 3% auto 3% auto;
     width: 80%;
