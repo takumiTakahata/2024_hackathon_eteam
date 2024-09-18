@@ -88,6 +88,24 @@ class QuestionController extends Controller
 
         return redirect()->route('question.show', ['id' => $id]);
     }
-    
+    public function questionindex(Request $request)
+{
+    $query = Question::with('tags');
+
+    if ($request->has('tag_ids')) {
+        $tagIds = $request->input('tag_ids');
+        if (!empty($tagIds)) {
+            $query->whereHas('tags', function ($q) use ($tagIds) {
+                $q->whereIn('tags.id', $tagIds);
+            });
+        }
+    }
+
+    $questions = $query->paginate(10)->appends($request->except('page')); // `appends` メソッドを使用して検索クエリを保持
+
+    $tags = Tag::all();
+
+    return view('questionindex', ['questions' => $questions, 'tags' => $tags]);
+}
 
 }
