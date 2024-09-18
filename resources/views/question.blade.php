@@ -1,38 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>知恵袋一覧</title>
+    <script>
+        function searchByTag(tagId) {
+            // タグがクリックされたらそのIDをURLに付けてリダイレクト
+            window.location.href = "?tag_id=" + tagId;
+        }
+    </script>
 </head>
 <body>
-<h1>知恵袋の投稿</h1>
-<form action="{{route('question.Confirm')}}" method="POST">
-  @csrf
-  <div class="form-group">
-    <label for="title">記事タイトル</label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="タイトルを入力してください" required>
-  </div>
 
-  <div class="form-group">
-    <label for="tags">分類タグ</label>
-    <div>
-      @foreach ($tags as $tag)
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-        <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
-      </div>
-      @endforeach
+    <h1>知恵袋一覧</h1>
+
+    <!-- タグの表示とクリックで検索 -->
+    <div class="tag-buttons">
+        @foreach ($tags as $tag)
+            <button type="button" onclick="searchByTag({{ $tag->id }})">
+                {{ $tag->name }}
+            </button>
+        @endforeach
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="text">投稿内容</label>
-    <textarea class="form-control" id="text" name="text" rows="5" placeholder="内容を入力してください" required></textarea>
-  </div>
+    <table>
+        <thead>
+            <tr>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>タグ</th>
+                <th>投稿日</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($questions as $question)
+                <tr>
+                    <td>{{ $question->title }}</td>
+                    <td>{{ $question->text }}</td>
+                    <td>
+                        <ul>
+                            @foreach ($question->tags as $tag)
+                                <li>{{ $tag->name }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>{{ $question->created_at->format('Y-m-d') }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
-  <button type="submit" class="btn btn-primary">投稿</button>
-</form>
-    
+    {{ $questions->links() }}
+
 </body>
 </html>

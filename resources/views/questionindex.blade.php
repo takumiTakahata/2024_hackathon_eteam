@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,25 @@
         .pagination .page-item.prev .page-link {
             visibility: hidden; /* 矢印リンク自体を非表示にする */
         }
+
+        /* チェックボックスを隠し、テキスト部分をスタイリング */
+        .tag-checkbox input[type="checkbox"] {
+            display: none;
+        }
+
+        .tag-checkbox span {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .tag-checkbox input[type="checkbox"]:checked + span {
+            background-color: #007BFF;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -25,11 +44,14 @@
     <h1>知恵袋一覧</h1>
 
     <div class="tag-buttons">
-        <form method="GET" action="{{ route('question.index') }}">
+        <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
             @foreach ($tags as $tag)
-                <button type="submit" name="tag_id" value="{{ $tag->id }}">
-                    {{ $tag->name }}
-                </button>
+                <label class="tag-checkbox">
+                    <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
+                        {{ is_array(request()->input('tag_ids')) && in_array($tag->id, request()->input('tag_ids')) ? 'checked' : '' }}
+                        onchange="this.form.submit()">
+                    <span>{{ $tag->name }}</span>
+                </label>
             @endforeach
         </form>
     </div>
@@ -61,6 +83,7 @@
         </tbody>
     </table>
 
+    <!-- ページネーションリンク -->
     {{ $questions->links() }}
 
 </body>
