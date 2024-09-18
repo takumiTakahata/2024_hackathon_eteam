@@ -15,7 +15,7 @@
             <p class="title">{{ $article->title}}</p>
             <!-- タグ確認 -->
             <ul class="tag-group">
-                @foreach (explode(', ', $article_tag) as $tag)
+                @foreach (explode(',', str_replace(['[', ']', '"'], '', $article_tag)) as $tag)
                     <li>{{ $tag }}</li>
                 @endforeach
             </ul>
