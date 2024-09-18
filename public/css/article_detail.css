@@ -43,3 +43,17 @@ main{
   width: 85%;
   word-break: break-all;
 }
+.good_button{
+    margin-left: 80%;
+}
+.good_button i {
+    font-size: 2rem;
+    color: #000000;
+    margin-right: 8px;
+}
+.good_button i:hover{
+    color: #fafd1e;
+}
+.good_button p:hover{
+    color: hsl(182, 98%, 55%);
+}

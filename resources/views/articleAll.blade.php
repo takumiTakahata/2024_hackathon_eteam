@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/article_detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -32,8 +33,9 @@
             @endif
             <!-- 内容確認 -->
             <p class="content">{{ $article -> text}}</p>
+                    <button type="button" class="good_button" onclick="popularAdd()">
+            <i class="fas fa-thumbs-up"></i><p>いいね</p></button>
         </div>
-        <button type="button" onclick="popularAdd()">いいねボタン</button>
     </main>
 </body>
 <script src="{{ asset('js/popular.js') }}">
