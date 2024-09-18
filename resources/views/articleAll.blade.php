@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/top.css">
+    <link rel="stylesheet" href="/css/article_detail.css">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <p class="page_title">投稿記事確認</p>
+        <p class="page_title">投稿記事</p>
         <div class="confirm">
             <!-- タイトル確認 -->
             <p class="title">{{ $article->title}}</p>
             <!-- タグ確認 -->
+            <ul class="tag-group">
+                @foreach (explode(', ', $article_tag) as $tag)
+                    <li>{{ $tag }}</li>
+                @endforeach
+            </ul>
             @if ($article->movie_url)
             @php
             // YouTubeのURLをembed用に変換
