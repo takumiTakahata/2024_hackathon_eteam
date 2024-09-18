@@ -101,8 +101,10 @@ class QuestionController extends Controller
         }
     }
 
-    $questions = $query->paginate(10)->appends($request->except('page')); // `appends` メソッドを使用して検索クエリを保持
+    // ページネーション
+    $questions = $query->paginate(10)->appends($request->except('page'));
 
+    // タグ一覧の取得
     $tags = Tag::all();
 
     return view('questionindex', ['questions' => $questions, 'tags' => $tags]);

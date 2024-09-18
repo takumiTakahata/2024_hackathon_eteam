@@ -1,3 +1,4 @@
+
         <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -18,7 +19,6 @@
         .pagination .page-item.prev .page-link {
             visibility: hidden; /* 矢印リンク自体を非表示にする */
         }
-
         /* チェックボックスを隠し、テキスト部分をスタイリング */
         .tag-checkbox input[type="checkbox"] {
             display: none;
