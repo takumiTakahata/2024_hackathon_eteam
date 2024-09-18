@@ -9,14 +9,15 @@
 </head>
 <body>
   <main>
-    <p>記事の投稿</p>
+    <p class="page_title">記事の投稿</p>
     <form action="{{route('article.comfirm')}}" method="POST">
       @csrf
       <!-- タイトル入力 -->
-      <div class="form-group">
-        <label for="title">記事タイトル</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="タイトルを入力してください" required>
+       <div class="article_title">
+        <p class="title">➤記事タイトル</p>
+        <p class="caveat">必須</p>
       </div>
+        <input type="text" class="title_form" id="title" name="title" placeholder="タイトルを入力してください" required>
 
       <!-- タグ選択（複数可） -->
       <div class="form-group">

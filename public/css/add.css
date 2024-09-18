@@ -1,0 +1,47 @@
+@charset "UTF-8";
+footer,header{
+  background-color: #6093F8;
+}
+main{
+    padding: 5% 0 5% 0;
+    background-color: #F0FFFF;
+}
+.page_title{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    font-size: 1.2rem;
+    background-color: #FFFFFF;
+    border-left :1.5rem solid #80DCF9;
+    border-bottom:2px solid #80DCF9;
+}
+.title{
+    text-align: left;
+    font-size: 1.2rem;
+}
+.tag-group{
+    width: 90%;
+    margin: 0 auto 3% auto;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: nowrap;
+    border:2px solid #000000;
+}
+.article_title{
+    margin: 2% auto 2% 10%;
+    display: flex;
+    width: 55%;
+}
+.caveat{
+    text-align: center;
+    font-size: 1rem;
+    width: 15%;
+    background-color: #FC5858;
+    margin-left: 3%;
+}
+.title_form{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
