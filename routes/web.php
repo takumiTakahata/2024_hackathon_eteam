@@ -19,3 +19,4 @@ Route::post('/comfirm/article/', [ArticleController::class, 'articleConfirm'])->
 Route::post('/articles/add', [ArticleController::class, 'articleAdd'])->name('article.add');
 Route::post('/question/{id}/answer', [QuestionController::class, 'answerstore'])->name('answer.store');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
+Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
