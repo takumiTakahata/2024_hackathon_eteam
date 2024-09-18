@@ -12,8 +12,6 @@
         <p class="page_title">知恵袋詳細</p>
         <div class="question">
             <p class="title">{{ $question->title }}</p>
-            
-            <h3>関連タグ</h3>
             <ul class="tag_group">
                 @forelse ($question->tags as $tag)
                 <li>{{ $tag->name }}</li>
