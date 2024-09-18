@@ -57,19 +57,20 @@ main{
     margin: 5%;
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid #006DD9;
+    border: 2px solid #000000;
     border-radius: 5px;
-    background-color: #006DD9;
-    color: white;
+    background-color: #FFFFFF;
+    color: #000000;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 .tags_form:checked + .check_label {
-    background-color: #004a99;
-    color: white;
+    border: 2px solid #0026FF;
+    background-color: #BBDEFF;
+    color: #000000;
 }
 .check_label:hover {
-    background-color: #004a99;
+    background-color: #53a2f7;
     color: white;
 }
 .tags_form{
@@ -92,4 +93,24 @@ main{
     margin: 0 auto 0 10%;
     background-color: #FFFFFF;
     border: 2px solid #000000;
+}
+.btn-primary {
+    text-align: center;
+    width: 60%;
+    margin: 1% auto 2% 20%;
+    color: #fff;
+    border-top: 4px solid #48d6ec;
+    border-right: 4px solid #0a4e5f;
+    border-bottom: 4px solid #0f4874;
+    border-left: 4px solid #8cd6f9;
+    border-radius: 0;
+    background: #113da3;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  border-top: 4px solid #0f3774;
+  border-right: 4px solid #8ccff9;
+  border-bottom: 4px solid #48dbec;
+  border-left: 4px solid #0a475f;
 }
