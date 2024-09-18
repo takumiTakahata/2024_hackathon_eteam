@@ -87,4 +87,14 @@ class ArticleController extends Controller
 
         return view('articleAll', ['article' => $article, 'article_tag' => $result]);
     }
+
+    public function popularAdd($id){
+        $article = Article::Where('id', $id)->first();
+        $popular_num = $article->popular;
+        $popular_num++;
+
+        ARticle::where('id', $id)->update(['popular' => $popular_num]);
+
+        return response('Success', 200); 
+    }
 }

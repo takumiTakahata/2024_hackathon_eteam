@@ -33,6 +33,9 @@
             <!-- 内容確認 -->
             <p class="content">{{ $article -> text}}</p>
         </div>
+        <button type="button" onclick="popularAdd()">いいねボタン</button>
     </main>
 </body>
+<script src="{{ asset('js/popular.js') }}">
+</script>
 </html>
