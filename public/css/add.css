@@ -27,7 +27,7 @@ main{
     flex-wrap: nowrap;
     border:2px solid #000000;
 }
-.article_title{
+.heading{
     margin: 2% auto 2% 10%;
     display: flex;
     width: 55%;
@@ -74,4 +74,22 @@ main{
 }
 .tags_form{
     display: none;
+}
+#content{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
+.any{
+    text-align: center;
+    font-size: 1rem;
+    width: 25%;
+    margin-left: 3%;
+}
+#youtube_url{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
 }

@@ -13,14 +13,17 @@
     <form action="{{route('article.comfirm')}}" method="POST">
       @csrf
       <!-- タイトル入力 -->
-       <div class="article_title">
+      <div class="heading">
         <p class="title">➤記事タイトル</p>
         <p class="caveat">必須</p>
       </div>
-        <input type="text" class="title_form" id="title" name="title" placeholder="タイトルを入力してください" required>
-
+      <input type="text" class="title_form" id="title" name="title" placeholder="タイトルを入力してください" required>
+      
       <!-- タグ選択（複数可） -->
-      <label for="tags">➤分類タグ</label>
+      <div class="heading">
+        <label for="tags" class="title">➤分類タグ</label>
+        <p class="caveat">必須</p>
+      </div>
       <div class="tags_list">
         @foreach ($tags as $tag)
           <input type="checkbox" class="tags_form" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
@@ -30,11 +33,16 @@
 
       <!-- 内容入力 -->
       <div class="form-group">
-        <label for="content">投稿内容</label>
+        <div class="heading">
+          <label for="content" class="title">➤投稿内容</label>
+          <p class="caveat">必須</p>
+        </div>
         <textarea class="form-control" id="content" name="content" rows="5" placeholder="内容を入力してください" required></textarea>
       </div>
-
-      <label for="youtube_url">YouTube動画URL:</label>
+      <div class="heading">
+        <label for="youtube_url" class="title">➤投稿動画</label>
+        <p class="any">(任意)</p>
+      </div>
       <input type="url" name="youtube_url" id="youtube_url" placeholder="https://www.youtube.com/watch?v=xxxxx">
 
       <!-- 送信ボタン -->
