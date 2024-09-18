@@ -20,16 +20,12 @@
         <input type="text" class="title_form" id="title" name="title" placeholder="タイトルを入力してください" required>
 
       <!-- タグ選択（複数可） -->
-      <div class="form-group">
-        <label for="tags">分類タグ</label>
-        <div>
-          @foreach ($tags as $tag)
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-            <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
-          </div>
-          @endforeach
-        </div>
+      <label for="tags">➤分類タグ</label>
+      <div class="tags_list">
+        @foreach ($tags as $tag)
+          <input type="checkbox" class="tags_form" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+          <label class="check_label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+        @endforeach
       </div>
 
       <!-- 内容入力 -->
