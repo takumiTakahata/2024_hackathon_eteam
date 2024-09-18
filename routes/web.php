@@ -20,4 +20,6 @@ Route::post('/articles/add', [ArticleController::class, 'articleAdd'])->name('ar
 Route::post('/question/{id}/answer', [QuestionController::class, 'answerstore'])->name('answer.store');
 Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
+Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
+Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
