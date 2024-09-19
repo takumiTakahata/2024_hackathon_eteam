@@ -109,5 +109,17 @@ class QuestionController extends Controller
 
     return view('questionindex', ['questions' => $questions, 'tags' => $tags]);
 }
+public function deleteQuestion($id)
+{
+    $question = Question::find($id);
+
+    if ($question) {
+        $question->update(['delete_flag' => true]);  // delete_flag を true にして削除フラグを立てる
+        return redirect()->back()->with('success', '知恵袋が削除されました。');
+    }
+
+    return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
+}
+
 
 }
