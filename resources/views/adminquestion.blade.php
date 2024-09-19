@@ -30,7 +30,7 @@
     <h1>知恵袋一覧</h1>
 
     <div class="tag-buttons">
-        <form id="tag-filter-form" method="GET" action="{{ route('adminquestion.index') }}">
+        <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
             @foreach ($tags as $tag)
                 <label class="tag-checkbox">
                     <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
@@ -65,6 +65,13 @@
                         </ul>
                     </td>
                     <td>{{ $question->created_at->format('Y-m-d') }}</td>
+                    <td>
+                        <form action="{{ route('question.delete', $question->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit">削除</button>
+                        </form>
+                    </td>
                 </tr>
             @empty
                 <tr>

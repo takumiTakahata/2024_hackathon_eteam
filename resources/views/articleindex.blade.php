@@ -28,6 +28,7 @@
 <body>
 
     <h1>記事一覧</h1>
+
     <div class="tag-buttons">
         <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
             @foreach ($tags as $tag)
@@ -48,6 +49,7 @@
                 <th>内容</th>
                 <th>タグ</th>
                 <th>投稿日</th>
+                <th>削除</th> 
             </tr>
         </thead>
         <tbody>
@@ -66,12 +68,11 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4">記事がありません。</td>
+                    <td colspan="5">記事がありません。</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
-    
 
     <!-- ページネーションリンク -->
     {{ $articles->appends(request()->except('page'))->links() }}

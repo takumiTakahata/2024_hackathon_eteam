@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>知恵袋一覧</title>
+    <title>記事一覧</title>
     <style>
         /* チェックボックスを隠し、テキスト部分をスタイリング */
         .tag-checkbox input[type="checkbox"] {
@@ -27,10 +27,10 @@
 </head>
 <body>
 
-    <h1>知恵袋一覧</h1>
+    <h1>記事一覧</h1>
 
     <div class="tag-buttons">
-        <form id="tag-filter-form" method="GET" action="{{ route('adminquestion.index') }}">
+        <form id="tag-filter-form" method="GET" action="{{ route('adminarticle.index') }}">
             @foreach ($tags as $tag)
                 <label class="tag-checkbox">
                     <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
@@ -49,33 +49,41 @@
                 <th>内容</th>
                 <th>タグ</th>
                 <th>投稿日</th>
-                <th>削除</th>
+                <th>削除</th> 
             </tr>
         </thead>
         <tbody>
-            @forelse ($questions as $question)
+            @forelse ($articles as $article)
                 <tr>
-                    <td>{{ $question->title }}</td>
-                    <td>{{ $question->content }}</td>
+                    <td>{{ $article->title }}</td>
+                    <td>{{ $article->text }}</td>
                     <td>
                         <ul>
-                            @foreach ($question->tags as $tag)
+                            @foreach ($article->tags as $tag)
                                 <li>{{ $tag->name }}</li>
                             @endforeach
                         </ul>
                     </td>
-                    <td>{{ $question->created_at->format('Y-m-d') }}</td>
+                    <td>{{ $article->created_at->format('Y-m-d') }}</td>
+                    <td>
+                        <!-- 削除ボタン -->
+                        <form action="{{ route('article.delete', $article->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit">削除</button>
+                        </form>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">知恵袋がありません。</td>
+                    <td colspan="5">記事がありません。</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
 
     <!-- ページネーションリンク -->
-    {{ $questions->appends(request()->except('page'))->links() }}
+    {{ $articles->appends(request()->except('page'))->links() }}
 
 </body>
 </html>
