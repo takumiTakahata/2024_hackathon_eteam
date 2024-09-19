@@ -1,12 +1,10 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>知恵袋一覧</title>
+    <title>記事一覧</title>
     <style>
-        
         /* チェックボックスを隠し、テキスト部分をスタイリング */
         .tag-checkbox input[type="checkbox"] {
             display: none;
@@ -29,10 +27,9 @@
 </head>
 <body>
 
-    <h1>知恵袋一覧</h1>
-
+    <h1>記事一覧</h1>
     <div class="tag-buttons">
-        <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
+        <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
             @foreach ($tags as $tag)
                 <label class="tag-checkbox">
                     <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
@@ -54,26 +51,29 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($questions as $question)
+            @forelse ($articles as $article)
                 <tr>
-                    <td>{{ $question->title }}</td>
-                    <td>{{ $question->text }}</td>
+                    <td>{{ $article->title }}</td>
+                    <td>{{ $article->text }}</td>
                     <td>
                         <ul>
-                            @foreach ($question->tags as $tag)
+                            @foreach ($article->tags as $tag)
                                 <li>{{ $tag->name }}</li>
                             @endforeach
                         </ul>
                     </td>
-                    <td>{{ $question->created_at->format('Y-m-d') }}</td>
+                    <td>{{ $article->created_at->format('Y-m-d') }}</td>
                 </tr>
-                
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="4">記事がありません。</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 
     <!-- ページネーションリンク -->
-    {{ $questions->links() }}
+    {{ $articles->appends(request()->except('page'))->links() }}
 
 </body>
 </html>

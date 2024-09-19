@@ -10,6 +10,6 @@ class Article extends Model
     use HasFactory;
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'articles_tag', 'article_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
     }
 }
