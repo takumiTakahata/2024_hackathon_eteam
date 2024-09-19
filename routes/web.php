@@ -25,3 +25,5 @@ Route::get('/question', [QuestionController::class, 'questionindex'])->name('que
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/top', [ArticleController::class, 'index'])->name('index');
 Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
+Route::patch('/article/{id}/delete', [ArticleController::class, 'deleteArticle'])->name('article.delete');
+

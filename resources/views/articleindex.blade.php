@@ -71,6 +71,7 @@
             @endforelse
         </tbody>
     </table>
+    
 
     <!-- ページネーションリンク -->
     {{ $articles->appends(request()->except('page'))->links() }}
