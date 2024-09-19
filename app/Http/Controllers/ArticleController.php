@@ -97,4 +97,27 @@ class ArticleController extends Controller
 
         return response('Success', 200); 
     }
+
+    public function index(){
+        $top_data = Article::orderBy('popular', 'desc')->limit(3)->get();
+
+        $tags = [];
+
+        for($i = 0; $i < 3; $i++){
+            $article_tag = Articles_Tag::where('articles_id', $top_data[$i]["id"])->get();
+            $tag = [];
+
+            foreach($article_tag as $tags_id){
+                $tmp = Tag::where('id', $tags_id->tags_id)->first();
+            
+                array_push($tag, $tmp["name"]);
+            }
+
+            array_push($tags, $tag);
+        }
+
+        // $tags = json_encode($tags);
+
+        return view('index', ["top_data" => $top_data, "tags" => $tags]);
+    }
 }
