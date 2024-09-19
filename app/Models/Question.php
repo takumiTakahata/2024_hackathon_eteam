@@ -19,4 +19,14 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class);
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        // 削除されていない知恵袋のみ取得
+        static::addGlobalScope('notDeleted', function ($query) {
+            $query->where('delete_flag', false);
+        });
+    }
+
 }
