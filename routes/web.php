@@ -18,8 +18,10 @@ Route::get('/add/article/', [ArticleController::class, 'articleCreate'])->name('
 Route::post('/comfirm/article/', [ArticleController::class, 'articleConfirm'])->name('article.comfirm');
 Route::post('/articles/add', [ArticleController::class, 'articleAdd'])->name('article.add');
 Route::post('/question/{id}/answer', [QuestionController::class, 'answerstore'])->name('answer.store');
+Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/top', [ArticleController::class, 'index'])->name('index');
+Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
