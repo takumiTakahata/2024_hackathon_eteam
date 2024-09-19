@@ -34,5 +34,11 @@
         </div>
         @endforeach
     </main>
+    <footer>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
+    </footer>
 </body>
 </html>
