@@ -98,13 +98,13 @@
             @endif
             </details>
         </article>
-        <a href="" class="btn btn-solid">他の記事はこちら</a>
+        <a href="{{route('article.index')}}" class="btn btn-solid">他の記事はこちら</a>
     </main>
     <footer>
-        <a href="">知恵袋投稿</a>
-        <a href="">投稿記事</a>
-        <a href="">知恵袋一覧</a>
-        <a href="">記事一覧</a>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
     </footer>
 </body>
 </html>
