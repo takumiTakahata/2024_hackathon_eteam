@@ -10,10 +10,10 @@
 <body>
     <main>
 
-        <p class="page_title">知恵袋一覧</p>
+        <p class="page_title">記事一覧</p>
 
         <div class="tag-buttons">
-            <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
+            <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
                 @foreach ($tags as $tag)
                     <label class="tag-checkbox">
                         <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
@@ -28,8 +28,8 @@
             <div class="lists">
                 <div class="page">
                     <p class="posted_on">{{ $article->created_at->format('Y-m-d') }}</p>
-                    <a href="articles/{{$article->id}}"  class="title">{{ $article->title }}</a>
-                    <a href="articles/{{$article->id}}" class="link">></a>
+                    <a href="{{ route('articleAll', $article->id) }}"  class="title">{{ $article->title }}</a>
+                    <a href="{{ route('articleAll', $article->id) }}" class="link">></a>
                 </div>
                 <ul class="tags">
                     @foreach ($article->tags as $tag)
@@ -37,9 +37,9 @@
                     @endforeach
                 </ul>
             </div>
-            @empty
-            <p colspan="4">記事がありません。</p>
-            @endforelse
+        @empty
+            <p>記事がありません。</p>
+        @endforelse
         <!-- ページネーションリンク -->
         {{ $articles->appends(request()->except('page'))->links() }}
     </main>
