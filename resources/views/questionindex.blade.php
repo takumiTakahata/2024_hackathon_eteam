@@ -11,7 +11,7 @@
 <body>
     <main>
 
-        <h1>知恵袋一覧</h1>
+        <p class="page_title">知恵袋一覧</p>
 
         <div class="tag-buttons">
             <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
@@ -25,34 +25,20 @@
                 @endforeach
             </form>
         </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>タイトル</th>
-                    <th>内容</th>
-                    <th>タグ</th>
-                    <th>投稿日</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($questions as $question)
-                    <tr>
-                        <td>{{ $question->title }}</td>
-                        <td>{{ $question->text }}</td>
-                        <td>
-                            <ul>
-                                @foreach ($question->tags as $tag)
-                                    <li>{{ $tag->name }}</li>
-                                @endforeach
-                            </ul>
-                        </td>
-                        <td>{{ $question->created_at->format('Y-m-d') }}</td>
-                    </tr>
-                    
-                @endforeach
-            </tbody>
-        </table>
+        @foreach ($questions as $question)
+            <div class="lists">
+                <div class="page">
+                    <p class="posted_on">{{ $question->created_at->format('Y-m-d') }}</p>
+                    <a href="question/{{$question->id}}"  class="title">{{ $question->title }}</a>
+                    <a href="question/{{$question->id}}" class="link">></a>
+                </div>
+                <ul class="tags">
+                    @foreach ($question->tags as $tag)
+                        <li class="tag">{{ $tag->name }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endforeach
 
         <!-- ページネーションリンク -->
         {{ $questions->links() }}
