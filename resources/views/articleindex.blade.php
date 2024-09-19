@@ -41,7 +41,7 @@
             <p>記事がありません。</p>
         @endforelse
         <!-- ページネーションリンク -->
-        {{ $articles->appends(request()->except('page'))->links() }}
+        {{ $articles->appends(request()->except('page'))->links('pagination.custom') }}
     </main>
 </body>
 </html>
