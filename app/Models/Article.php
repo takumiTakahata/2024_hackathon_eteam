@@ -12,4 +12,13 @@ class Article extends Model
     {
         return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        // 削除されていない記事のみ取得
+        static::addGlobalScope('notDeleted', function ($query) {
+            $query->where('delete_flag', false);
+        });
+    }
 }
