@@ -23,3 +23,4 @@ Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('ar
 Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
+Route::get('/top', [ArticleController::class, 'index'])->name('index');

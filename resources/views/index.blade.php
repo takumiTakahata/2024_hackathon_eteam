@@ -22,14 +22,14 @@
             <p>おすすめの記事</p>
         </div>
         <article>
-            <p class="title">記事タイトル1</p>
-            <p class="posted_on">投稿日</p>
+            <p class="title">{{ $top_data[0]["title"] }}</p>
+            <p class="posted_on">{{ $top_data[0]["created_at"] }}</p>
             <div class="tag_list">
-                <p class="tag">タグ</p>
-                <p class="tag">タグ</p>
-                <p class="tag">タグ</p>
+                @foreach($tags[0] as $tag)
+                    <p class="tag">{{$tag}}</p>
+                @endforeach
             </div>
-            <p class="contents">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p class="contents">{{ $top_data[0]["text"] }}</p>
             <video controls width="250">
                 <source src="" type="video/webm"/>
             </video> 
@@ -38,40 +38,40 @@
             <details>
                 <summary>
                     <div class="summary-content">
-                        <p class="into_posted_on">投稿日</p>
-                        <p class="into_title">記事タイトル1</p>
+                        <p class="into_posted_on">{{ $top_data[1]["created_at"] }}</p>
+                        <p class="into_title">{{ $top_data[1]["title"] }}</p>
                         <div class="arrow-down"></div>
                     </div>
                     <div class="into_tag_list">
-                        <p class="into_tag">タグ</p>
-                        <p class="into_tag">タグ</p>
-                        <p class="into_tag">タグ</p>
+                        @foreach($tags[1] as $tag)
+                            <p class="tag">{{$tag}}</p>
+                        @endforeach
                     </div>
                 </summary>
                 <video controls width="250">
                     <source src="" type="video/webm"/>
                 </video> 
-                <p class="contents">aaaaaaaaaaa</p>
+                <p class="contents">{{ $top_data[1]["text"] }}</p>
             </details>
         </article>
         <article>
             <details>
                 <summary>
                     <div class="summary-content">
-                        <p class="into_posted_on">投稿日</p>
-                        <p class="into_title">記事タイトル1</p>
+                        <p class="into_posted_on">{{ $top_data[2]["created_at"] }}</p>
+                        <p class="into_title">{{ $top_data[2]["title"] }}</p>
                         <div class="arrow-down"></div>
                     </div>
                     <div class="into_tag_list">
-                        <p class="into_tag">タグ</p>
-                        <p class="into_tag">タグ</p>
-                        <p class="into_tag">タグ</p>
+                        @foreach($tags[2] as $tag)
+                            <p class="tag">{{$tag}}</p>
+                        @endforeach
                     </div>
                 </summary>
                 <video controls width="250">
                     <source src="" type="video/webm"/>
                 </video> 
-                <p class="contents">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <p class="contents">{{ $top_data[2]["text"] }}</p>
             </details>
         </article>
     </main>
