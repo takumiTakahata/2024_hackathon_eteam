@@ -97,4 +97,29 @@ class ArticleController extends Controller
 
         return response('Success', 200); 
     }
+
+    public function articleindex(Request $request)
+    {
+        // 記事と関連タグを取得するためのクエリビルダー
+        $query = Article::with('tags');
+        
+        // リクエストにタグIDが含まれている場合のフィルタリング
+        if ($request->has('tag_ids')) {
+            $tagIds = $request->input('tag_ids');
+            if (!empty($tagIds)) {
+                $query->whereHas('tags', function ($q) use ($tagIds) {
+                    $q->whereIn('tags.id', $tagIds);
+                });
+            }
+        }
+    
+        // ページネーションの設定
+        $articles = $query->paginate(10)->appends($request->except('page'));
+    
+        // タグ一覧の取得
+        $tags = Tag::all();
+    
+        return view('articleindex', ['articles' => $articles, 'tags' => $tags]);
+    }
+       
 }
