@@ -1,0 +1,73 @@
+@charset "UTF-8";
+footer,header{
+  background-color: #6093F8;
+}
+main{
+    padding: 5% 0 5% 0;
+    background-color: #F0FFFF;
+}
+.page_title{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    font-size: 1.2rem;
+    background-color: #FFFFFF;
+    border-left :1.5rem solid #80DCF9;
+    border-bottom:2px solid #80DCF9;
+}
+.tag-checkbox{
+    border: 2px solid #0026FF;
+    background-color: #ffffff;
+    font-size: 0.8rem;
+    width: 20%;
+    margin: 2% 3% 0 5%;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tag-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.tag-checkbox input[type="checkbox"]:checked + span {
+    background-color: #53a2f7;
+    color: #000000;
+}
+
+.tag-checkbox:hover span {
+    background-color: #06d1ff42;
+    color: rgb(0, 0, 0);
+}
+.lists{
+    width: 80%;
+    background-color: #ffffff;
+    margin: 3% auto 3% auto;
+    border: 2px solid #000000;
+}
+.title{
+    border-bottom: 1px solid;
+    font-size: 2rem;
+    display: inline;
+}
+.posted_on{
+    margin-right: 5%;
+    text-align: center;
+    font-size: 1rem;
+    display: inline;
+}
+.tags{
+    margin-left: 10%;
+}
+.tag{
+    margin-left: 2%;
+    font-size: 1.2rem;
+    display: inline;
+}
+.page {
+    display: flex;
+    align-items: center;
+}
+.link{
+    margin-left: 5%;
+    font-size: 3rem;
+}
