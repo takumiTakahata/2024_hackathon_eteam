@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/list.css">
     <title>知恵袋一覧</title>
     <style>
-        
         /* チェックボックスを隠し、テキスト部分をスタイリング */
         .tag-checkbox input[type="checkbox"] {
             display: none;
