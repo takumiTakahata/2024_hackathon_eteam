@@ -1,15 +1,21 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\QuestionController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/top', function () {
-    return view('index');
-});
+
+Route::get('/', [ArticleController::class, 'index'])->name('index');
 Route::get('/add/question/', [QuestionController::class, 'questionCreate'])->name('qestionCreate');
 Route::post('/comfirm/question/', [QuestionController::class, 'questionConfirm'])->name('question.Confirm');
 Route::post('/question/add', [QuestionController::class, 'questionAdd'])->name('question.add');
@@ -23,5 +29,6 @@ Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('ar
 Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
-Route::get('/top', [ArticleController::class, 'index'])->name('index');
 Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
+
+require __DIR__.'/auth.php';
