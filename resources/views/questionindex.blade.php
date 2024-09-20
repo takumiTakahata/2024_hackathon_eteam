@@ -38,7 +38,7 @@
                 </ul>
             </div>      
         @empty
-            <p>記事がありません。</p>
+            <p>知恵袋がありません。</p>
         @endforelse
         {{ $questions->appends(request()->except('page'))->links('pagination.custom') }}
     </main>
