@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-
+        <p class="page_title">記事一覧</p>
         <div class="tag-buttons">
             <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
                 @foreach ($tags as $tag)
