@@ -60,14 +60,14 @@ class QuestionController extends Controller
             ]);
         }
 
-        return redirect()->route('question_list');
+        return redirect()->route('question.index');
     }
 
     public function show($id)
     {
         $question = Question::with('tags', 'answer')->findOrFail($id);
         $questiontags = QuestionTag::where('question_id', $id)->get();
-    
+
         return view('questiondetail', [
             'question' => $question,
             'question_tags' => $questiontags
@@ -118,11 +118,32 @@ class QuestionController extends Controller
 
         if ($question) {
             $question->update(['delete_flag' => true]);  // trueにしてフラグを立てる
-            echo('成功');
+            echo ('成功');
             return redirect()->back()->with('success', '知恵袋が削除されました。');
-        }else{ 
-            echo('失敗');
+        } else {
+            echo ('失敗');
             return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
         }
+    }
+        public function adminquestion(Request $request)
+    {
+        $query = Question::with('tags');
+
+        if ($request->has('tag_ids')) {
+            $tagIds = $request->input('tag_ids');
+            if (!empty($tagIds)) {
+                $query->whereHas('tags', function ($q) use ($tagIds) {
+                    $q->whereIn('tags.id', $tagIds);
+                });
+            }
+        }
+
+        // ページネーション
+        $questions = $query->paginate(10)->appends($request->except('page'));
+
+        // タグ一覧の取得
+        $tags = Tag::all();
+
+        return view('adminquestion', ['questions' => $questions, 'tags' => $tags]);
     }
 }
