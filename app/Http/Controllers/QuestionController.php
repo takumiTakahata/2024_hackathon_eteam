@@ -18,7 +18,7 @@ class QuestionController extends Controller
 
     public function questionConfirm(Request $request)
     {
-        //  バリデーション
+        // バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'text' => 'required',
@@ -39,7 +39,7 @@ class QuestionController extends Controller
 
     public function questionAdd(Request $request)
     {
-        //  バリデーション
+        // バリデーション
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'text' => 'required',
@@ -62,6 +62,7 @@ class QuestionController extends Controller
 
         return redirect()->route('question_list');
     }
+
     public function show($id)
     {
         $question = Question::with('tags', 'answer')->findOrFail($id);
@@ -88,38 +89,40 @@ class QuestionController extends Controller
 
         return redirect()->route('question.show', ['id' => $id]);
     }
-    public function questionindex(Request $request)
-{
-    $query = Question::with('tags');
 
-    if ($request->has('tag_ids')) {
-        $tagIds = $request->input('tag_ids');
-        if (!empty($tagIds)) {
-            $query->whereHas('tags', function ($q) use ($tagIds) {
-                $q->whereIn('tags.id', $tagIds);
-            });
+    public function questionindex(Request $request)
+    {
+        $query = Question::with('tags');
+
+        if ($request->has('tag_ids')) {
+            $tagIds = $request->input('tag_ids');
+            if (!empty($tagIds)) {
+                $query->whereHas('tags', function ($q) use ($tagIds) {
+                    $q->whereIn('tags.id', $tagIds);
+                });
+            }
+        }
+
+        // ページネーション
+        $questions = $query->paginate(10)->appends($request->except('page'));
+
+        // タグ一覧の取得
+        $tags = Tag::all();
+
+        return view('questionindex', ['questions' => $questions, 'tags' => $tags]);
+    }
+
+    public function deleteQuestion($id)
+    {
+        $question = Question::find($id);
+
+        if ($question) {
+            $question->update(['delete_flag' => true]);  // trueにしてフラグを立てる
+            echo('成功');
+            return redirect()->back()->with('success', '知恵袋が削除されました。');
+        }else{ 
+            echo('失敗');
+            return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
         }
     }
-
-    // ページネーション
-    $questions = $query->paginate(10)->appends($request->except('page'));
-
-    // タグ一覧の取得
-    $tags = Tag::all();
-
-    return view('questionindex', ['questions' => $questions, 'tags' => $tags]);
-}
-public function deleteQuestion($id)
-{
-    $question = Question::find($id);
-
-    if ($question) {
-        $question->update(['delete_flag' => true]);  // trueにしてフラグを立てる
-        return redirect()->back()->with('success', '知恵袋が削除されました。');
-    }
-
-    return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
-}
-
-
 }

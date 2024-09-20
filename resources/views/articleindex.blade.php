@@ -49,7 +49,6 @@
                 <th>内容</th>
                 <th>タグ</th>
                 <th>投稿日</th>
-                <th>削除</th> 
             </tr>
         </thead>
         <tbody>

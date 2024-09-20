@@ -25,7 +25,9 @@ Route::get('/question', [QuestionController::class, 'questionindex'])->name('que
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/top', [ArticleController::class, 'index'])->name('index');
 Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
-Route::patch('/article/{id}/delete', [ArticleController::class, 'deleteArticle'])->name('article.delete');
-Route::patch('/question/{id}/delete', [QuestionController::class, 'deleteQuestion'])->name('question.delete');
+Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->name('article.delete');
+Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->name('question.delete');
+
+
 
 

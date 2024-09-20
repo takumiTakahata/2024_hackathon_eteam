@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'text', 'delete_flag'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
