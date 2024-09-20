@@ -21,6 +21,7 @@
             </ul>
             <p class="content">{{ $question->text }}</p>
         </div>
+        <a href="{{route('question.index')}}" class="question_return">＜　知恵袋一覧へ戻る</a>
         <form action="{{ route('answer.store', $question->id) }}" method="POST">
             @csrf
             <textarea name="text" rows="2" cols="50" required placeholder="コメントを入力"></textarea>
