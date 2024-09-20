@@ -23,7 +23,7 @@
         </div>
         <article>
             <p class="title">{{ $top_data[0]["title"] }}</p>
-            <p class="posted_on">{{ $top_data[0]["created_at"] }}</p>
+            <p class="posted_on">{{ $top_data[0]["created_at"]->format('Y-m-d') }}</p>
             <div class="tag_list">
                 @foreach($tags[0] as $tag)
                     <p class="tag">{{$tag}}</p>
@@ -46,7 +46,7 @@
             <details>
                 <summary>
                     <div class="summary-content">
-                        <p class="into_posted_on">{{ $top_data[1]["created_at"] }}</p>
+                        <p class="into_posted_on">{{ $top_data[1]["created_at"]->format('Y-m-d') }}</p>
                         <p class="into_title">{{ $top_data[1]["title"] }}</p>
                         <div class="arrow-down"></div>
                     </div>
@@ -74,7 +74,7 @@
             <details>
                 <summary>
                     <div class="summary-content">
-                        <p class="into_posted_on">{{ $top_data[2]["created_at"] }}</p>
+                        <p class="into_posted_on">{{ $top_data[2]["created_at"]->format('Y-m-d') }}</p>
                         <p class="into_title">{{ $top_data[2]["title"] }}</p>
                         <div class="arrow-down"></div>
                     </div>
