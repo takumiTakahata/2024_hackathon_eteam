@@ -32,6 +32,6 @@ Route::get('/articles', [ArticleController::class, 'articleindex'])->name('artic
 Route::get('/adminarticles', [ArticleController::class, 'adminarticle'])->middleware(['auth', 'verified'])->name('adminarticle.index');
 Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->middleware(['auth', 'verified'])->name('article.delete'); 
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
-Route::get('/adminquestion', [QuestionController::class, 'questionindex'])->middleware(['auth', 'verified'])->name('adminquestion.index');
+Route::get('/adminquestion', [QuestionController::class, 'adminquestion'])->middleware(['auth', 'verified'])->name('adminquestion.index');
 Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete'); 
 require __DIR__.'/auth.php';
