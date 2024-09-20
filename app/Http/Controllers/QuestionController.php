@@ -125,4 +125,25 @@ class QuestionController extends Controller
             return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
         }
     }
+        public function adminquestion(Request $request)
+    {
+        $query = Question::with('tags');
+
+        if ($request->has('tag_ids')) {
+            $tagIds = $request->input('tag_ids');
+            if (!empty($tagIds)) {
+                $query->whereHas('tags', function ($q) use ($tagIds) {
+                    $q->whereIn('tags.id', $tagIds);
+                });
+            }
+        }
+
+        // ページネーション
+        $questions = $query->paginate(10)->appends($request->except('page'));
+
+        // タグ一覧の取得
+        $tags = Tag::all();
+
+        return view('adminquestion', ['questions' => $questions, 'tags' => $tags]);
+    }
 }
