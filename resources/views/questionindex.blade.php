@@ -1,12 +1,12 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/list.css">
     <title>知恵袋一覧</title>
     <style>
-        
         /* チェックボックスを隠し、テキスト部分をスタイリング */
         .tag-checkbox input[type="checkbox"] {
             display: none;
@@ -28,52 +28,45 @@
     </style>
 </head>
 <body>
+    <main>
 
-    <h1>知恵袋一覧</h1>
+        <p class="page_title">知恵袋一覧</p>
 
-    <div class="tag-buttons">
-        <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
-            @foreach ($tags as $tag)
-                <label class="tag-checkbox">
-                    <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
-                        {{ is_array(request()->input('tag_ids')) && in_array($tag->id, request()->input('tag_ids')) ? 'checked' : '' }}
-                        onchange="this.form.submit()">
-                    <span>{{ $tag->name }}</span>
-                </label>
-            @endforeach
-        </form>
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th>タイトル</th>
-                <th>内容</th>
-                <th>タグ</th>
-                <th>投稿日</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($questions as $question)
-                <tr>
-                    <td>{{ $question->title }}</td>
-                    <td>{{ $question->text }}</td>
-                    <td>
-                        <ul>
-                            @foreach ($question->tags as $tag)
-                                <li>{{ $tag->name }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                    <td>{{ $question->created_at->format('Y-m-d') }}</td>
-                </tr>
-                
-            @endforeach
-        </tbody>
-    </table>
-
-    <!-- ページネーションリンク -->
-    {{ $questions->links() }}
-
+        <div class="tag-buttons">
+            <form id="tag-filter-form" method="GET" action="{{ route('question.index') }}">
+                @foreach ($tags as $tag)
+                    <label class="tag-checkbox">
+                        <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
+                            {{ is_array(request()->input('tag_ids')) && in_array($tag->id, request()->input('tag_ids')) ? 'checked' : '' }}
+                            onchange="this.form.submit()">
+                        <span>{{ $tag->name }}</span>
+                    </label>
+                @endforeach
+            </form>
+        </div>
+        @forelse ($questions as $question)
+            <div class="lists">
+                <div class="page">
+                    <p class="posted_on">{{ $question->created_at->format('Y-m-d') }}</p>
+                    <a href="question/{{$question->id}}"  class="title">{{ $question->title }}</a>
+                    <a href="question/{{$question->id}}" class="link">></a>
+                </div>
+                <ul class="tags">
+                    @foreach ($question->tags as $tag)
+                        <li class="tag">{{ $tag->name }}</li>
+                    @endforeach
+                </ul>
+            </div>      
+        @empty
+            <p>記事がありません。</p>
+        @endforelse
+        {{ $questions->appends(request()->except('page'))->links('pagination.custom') }}
+    </main>
+    <footer>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
+    </footer>
 </body>
 </html>

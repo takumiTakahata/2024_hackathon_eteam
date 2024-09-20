@@ -143,5 +143,17 @@ class ArticleController extends Controller
     
         return view('articleindex', ['articles' => $articles, 'tags' => $tags]);
     }
+    public function deleteArticle($id)
+{
+    $article = Article::find($id);
+
+    if ($article) {
+        $article->update(['delete_flag' => true]);  // delete_flag を true にして削除フラグを立てる
+        return redirect()->back()->with('success', '記事が削除されました。');
+    }
+
+    return redirect()->back()->with('error', '記事が見つかりませんでした。');
+}
+
        
 }

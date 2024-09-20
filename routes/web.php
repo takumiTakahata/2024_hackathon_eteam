@@ -27,8 +27,9 @@ Route::post('/question/{id}/answer', [QuestionController::class, 'answerstore'])
 Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
-Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
-Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
-
+Route::get('/articles', [ArticleController::class, 'articleindex'])->middleware(['auth', 'verified'])->name('article.index');
+Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->middleware(['auth', 'verified'])->name('article.delete'); 
+Route::get('/question', [QuestionController::class, 'questionindex'])->middleware(['auth', 'verified'])->name('question.index');
+Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete'); 
 require __DIR__.'/auth.php';

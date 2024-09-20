@@ -36,7 +36,14 @@
                     <button type="button" class="good_button" onclick="popularAdd()">
             <i class="fas fa-thumbs-up"></i><p>いいね</p></button>
         </div>
+        <a href="{{route('article.index')}}" class="article_return">＜　記事一覧に戻る</a>
     </main>
+    <footer>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
+    </footer>
 </body>
 <script src="{{ asset('js/popular.js') }}">
 </script>
