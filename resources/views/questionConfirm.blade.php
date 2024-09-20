@@ -19,8 +19,8 @@
           <input type="hidden" name="text" value="{{ $text }}">
     </div>
       <div class="button">
+        <a href="{{route('qestionCreate')}}" class="btn btn-return"><p>投稿画面に戻る</p></a>
         <button type="submit" class="btn btn-success"><p>この知恵袋を投稿する</p></button>
-        <button><a href="" class="btn btn-return"><p>投稿画面に戻る</p></a></button>
       </div>
       </form>
   </main>

@@ -75,3 +75,9 @@ textarea{
     background-color: #FFFFFF;
     border-bottom:2px solid #80DCF9;
 }
+.question_return{
+    margin: 3% auto 5% 10%;
+    width: 80%;
+    text-align: center;
+    border-bottom:2px solid #000000;
+}

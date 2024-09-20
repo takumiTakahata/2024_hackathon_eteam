@@ -44,7 +44,7 @@
                 @endforeach
             </form>
         </div>
-        @foreach ($questions as $question)
+        @forelse ($questions as $question)
             <div class="lists">
                 <div class="page">
                     <p class="posted_on">{{ $question->created_at->format('Y-m-d') }}</p>
@@ -56,12 +56,17 @@
                         <li class="tag">{{ $tag->name }}</li>
                     @endforeach
                 </ul>
-            </div>
-        @endforeach
-
-        <!-- ページネーションリンク -->
-        
-    {{ $questions->appends(request()->except('page'))->links() }}
+            </div>      
+        @empty
+            <p>記事がありません。</p>
+        @endforelse
+        {{ $questions->appends(request()->except('page'))->links('pagination.custom') }}
     </main>
+    <footer>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
+    </footer>
 </body>
 </html>

@@ -21,6 +21,7 @@
             </ul>
             <p class="content">{{ $question->text }}</p>
         </div>
+        <a href="{{route('question.index')}}" class="question_return">＜　知恵袋一覧へ戻る</a>
         <form action="{{ route('answer.store', $question->id) }}" method="POST">
             @csrf
             <textarea name="text" rows="2" cols="50" required placeholder="コメントを入力"></textarea>
@@ -34,5 +35,11 @@
         </div>
         @endforeach
     </main>
+    <footer>
+        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
+        <a href="{{route('articleCreate')}}">投稿記事</a>
+        <a href="{{route('question.index')}}">知恵袋一覧</a>
+        <a href="{{route('article.index')}}">記事一覧</a>
+    </footer>
 </body>
 </html>

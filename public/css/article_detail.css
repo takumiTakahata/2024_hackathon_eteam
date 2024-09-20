@@ -57,3 +57,10 @@ main{
 .good_button p:hover{
     color: hsl(182, 98%, 55%);
 }
+.article_return{
+    margin: 3% auto 3% 10%;
+    width: 80%;
+    text-align: center;
+    border-bottom:2px solid #000000;
+}
+
