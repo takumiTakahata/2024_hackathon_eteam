@@ -142,3 +142,12 @@ a.btn-solid:hover {
   border-bottom: 4px solid #1f47f8b3;
   border-left: 4px solid #0a2f5f;
 }
+.btn-danger{
+    color: #fff;
+    border-top: 4px solid #2d92f7;
+    border-right: 4px solid #18069b;
+    border-bottom: 4px solid #5020d5;
+    border-left: 4px solid #18f6f2;
+    border-radius: 0;
+    background: #0040fe;
+}
