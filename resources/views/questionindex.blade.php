@@ -1,5 +1,4 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +6,27 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/list.css">
     <title>知恵袋一覧</title>
+    <style>
+        
+        /* チェックボックスを隠し、テキスト部分をスタイリング */
+        .tag-checkbox input[type="checkbox"] {
+            display: none;
+        }
+
+        .tag-checkbox span {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .tag-checkbox input[type="checkbox"]:checked + span {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <main>
@@ -41,7 +61,8 @@
         @endforeach
 
         <!-- ページネーションリンク -->
-        {{ $questions->links() }}
+        
+    {{ $questions->appends(request()->except('page'))->links() }}
     </main>
 </body>
 </html>
