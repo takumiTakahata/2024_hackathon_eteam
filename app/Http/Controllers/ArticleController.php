@@ -67,4 +67,93 @@ class ArticleController extends Controller
 
         return redirect('/top');
     }
+
+    public function articleAll($id){
+        $article = Article::Where('id', $id)->first();
+
+        $article_tag = Articles_Tag::where('articles_id', $id)->get();
+        // $id = $article_tag->tags_id;
+        // $article_tag_name = Tag::where('id', $article_tag[0]->tags_id)->get();
+
+        $tags = [];
+
+        foreach($article_tag as $tags_id){
+            $tmp = Tag::where('id', $tags_id->tags_id)->first();
+            
+            array_push($tags, $tmp["name"]);
+        }
+
+        $result = json_encode($tags);
+
+        return view('articleAll', ['article' => $article, 'article_tag' => $result]);
+    }
+
+    public function popularAdd($id){
+        $article = Article::Where('id', $id)->first();
+        $popular_num = $article->popular;
+        $popular_num++;
+
+        ARticle::where('id', $id)->update(['popular' => $popular_num]);
+
+        return response('Success', 200); 
+    }
+
+    public function index(){
+        $top_data = Article::orderBy('popular', 'desc')->limit(3)->get();
+
+        $tags = [];
+
+        for($i = 0; $i < 3; $i++){
+            $article_tag = Articles_Tag::where('articles_id', $top_data[$i]["id"])->get();
+            $tag = [];
+
+            foreach($article_tag as $tags_id){
+                $tmp = Tag::where('id', $tags_id->tags_id)->first();
+            
+                array_push($tag, $tmp["name"]);
+            }
+
+            array_push($tags, $tag);
+        }
+
+        // $tags = json_encode($tags);
+
+        return view('index', ["top_data" => $top_data, "tags" => $tags]);
+    }
+    public function articleindex(Request $request)
+    {
+        // 記事と関連タグを取得するためのクエリビルダー
+        $query = Article::with('tags');
+        
+        // リクエストにタグIDが含まれている場合のフィルタリング
+        if ($request->has('tag_ids')) {
+            $tagIds = $request->input('tag_ids');
+            if (!empty($tagIds)) {
+                $query->whereHas('tags', function ($q) use ($tagIds) {
+                    $q->whereIn('tags.id', $tagIds);
+                });
+            }
+        }
+    
+        // ページネーションの設定
+        $articles = $query->paginate(10)->appends($request->except('page'));
+    
+        // タグ一覧の取得
+        $tags = Tag::all();
+    
+        return view('articleindex', ['articles' => $articles, 'tags' => $tags]);
+    }
+    public function deleteArticle($id)
+{
+    $article = Article::find($id);
+
+    if ($article) {
+        $article->update(['delete_flag' => true]);  // delete_flag を true にして削除フラグを立てる
+        return redirect()->back()->with('success', '記事が削除されました。');
+    }
+
+    return redirect()->back()->with('error', '記事が見つかりませんでした。');
+}
+
+       
 }

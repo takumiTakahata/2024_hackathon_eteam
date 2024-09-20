@@ -1,0 +1,116 @@
+@charset "UTF-8";
+footer,header{
+  background-color: #6093F8;
+}
+main{
+    padding: 5% 0 5% 0;
+    background-color: #F0FFFF;
+}
+.page_title{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+    font-size: 1.2rem;
+    background-color: #FFFFFF;
+    border-left :1.5rem solid #80DCF9;
+    border-bottom:2px solid #80DCF9;
+}
+.title{
+    text-align: left;
+    font-size: 1.2rem;
+}
+.tag-group{
+    width: 90%;
+    margin: 0 auto 3% auto;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: nowrap;
+    border:2px solid #000000;
+}
+.heading{
+    margin: 2% auto 2% 10%;
+    display: flex;
+    width: 55%;
+}
+.caveat{
+    text-align: center;
+    font-size: 1rem;
+    width: 15%;
+    background-color: #FC5858;
+    margin-left: 3%;
+}
+.title_form{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
+.tags_list{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.check_label{
+    font-size: 0.8rem;
+    width: 23%;
+    margin: 2% 5% 0 5%;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.tags_form:checked + .check_label {
+    border: 2px solid #0026FF;
+    background-color: #BBDEFF;
+    color: #000000;
+}
+.check_label:hover {
+    background-color: #53a2f7;
+    color: white;
+}
+.tags_form{
+    display: none;
+}
+#content{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
+.any{
+    text-align: center;
+    font-size: 1rem;
+    width: 25%;
+    margin-left: 3%;
+}
+#youtube_url{
+    width: 80%;
+    margin: 0 auto 0 10%;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+}
+.btn-primary {
+    text-align: center;
+    width: 60%;
+    margin: 1% auto 2% 20%;
+    color: #fff;
+    border-top: 4px solid #48d6ec;
+    border-right: 4px solid #0a4e5f;
+    border-bottom: 4px solid #0f4874;
+    border-left: 4px solid #8cd6f9;
+    border-radius: 0;
+    background: #113da3;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  border-top: 4px solid #0f3774;
+  border-right: 4px solid #8ccff9;
+  border-bottom: 4px solid #48dbec;
+  border-left: 4px solid #0a475f;
+}

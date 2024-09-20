@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* スマホ画面用のCSS */
-@media only screen and (max-width: 600px) {
     main{
         padding: 5% 0 5% 0;
         background-color: #F0FFFF;
@@ -29,7 +27,7 @@
         text-align: center;
     }
     article{
-        border-radius: 8%;
+        border-radius: 20px;
         text-align: center;
         background-color: #FFFFFF;
         width: 85%;
@@ -126,43 +124,21 @@
         transform: rotate(-70deg);
         content: '';
     }
-    .star2 {
-        position: relative;
-        display: inline-block;
-        color: #FF0004;
-        width: 0;
-        height: 0;
-        border-right: 1em solid transparent;
-        border-bottom: 0.7em solid #FF0004;
-        border-left: 1em solid transparent;
-        transform: rotate(35deg);
-        margin-right:2% ;
-    }
-    .star2:before {
-        border-bottom: 0.7em solid #FF0004;
-        border-left: 0.3em solid transparent;
-        border-right: 0.3em solid transparent;
-        position: absolute;
-        height: 0;
-        width: 0;
-        top: -0.45em;
-        left: -0.65em;
-        display: block;
-        content: '';
-        transform: rotate(-35deg);
-    }
-    .star2:after {
-        position: absolute;
-        display: block;
-        color: #FF0004;
-        top: 0.1em;
-        left: -1em;
-        width: 0;
-        height: 0;
-        border-right: 1em solid transparent;
-        border-bottom: 0.7em solid #FF0004;
-        border-left: 1em solid transparent;
-        transform: rotate(-70deg);
-        content: '';
-    }
+a.btn-solid {
+    margin: 1% auto 2% 5%;
+    color: #fff;
+    border-top: 4px solid #2d92f7;
+    border-right: 4px solid #18069b;
+    border-bottom: 4px solid #5020d5;
+    border-left: 4px solid #18f6f2;
+    border-radius: 0;
+    background: #0040fe;
+}
+
+a.btn-solid:hover {
+  color: #fff;
+  border-top: 4px solid #4885ff;
+  border-right: 4px solid #15addb;
+  border-bottom: 4px solid #1f47f8b3;
+  border-left: 4px solid #0a2f5f;
 }
