@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\QuestionController;
+require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -15,7 +16,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [ArticleController::class, 'index'])->name('index');
 Route::get('/add/question/', [QuestionController::class, 'questionCreate'])->name('qestionCreate');
 Route::post('/comfirm/question/', [QuestionController::class, 'questionConfirm'])->name('question.Confirm');
 Route::post('/question/add', [QuestionController::class, 'questionAdd'])->name('question.add');
@@ -28,8 +28,11 @@ Route::get('/question', [QuestionController::class, 'index'])->name('question.in
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
 Route::get('/popular/{id}', [ArticleController::class, 'popularAdd'])->name('popularAdd');
 Route::get('/articles/{id}', [ArticleController::class, 'articleAll'])->name('articleAll');
-Route::get('/articles', [ArticleController::class, 'articleindex'])->middleware(['auth', 'verified'])->name('article.index');
-Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->middleware(['auth', 'verified'])->name('article.delete'); 
-Route::get('/question', [QuestionController::class, 'questionindex'])->middleware(['auth', 'verified'])->name('question.index');
-Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete'); 
-require __DIR__.'/auth.php';
+Route::get('/top', [ArticleController::class, 'index'])->name('index');
+Route::get('/articles', [ArticleController::class, 'articleindex'])->name('article.index');
+Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->name('article.delete');
+Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->name('question.delete');
+
+
+
+
