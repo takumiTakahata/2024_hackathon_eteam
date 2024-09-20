@@ -124,3 +124,21 @@
         transform: rotate(-70deg);
         content: '';
     }
+a.btn-solid {
+    margin: 1% auto 2% 5%;
+    color: #fff;
+    border-top: 4px solid #2d92f7;
+    border-right: 4px solid #18069b;
+    border-bottom: 4px solid #5020d5;
+    border-left: 4px solid #18f6f2;
+    border-radius: 0;
+    background: #0040fe;
+}
+
+a.btn-solid:hover {
+  color: #fff;
+  border-top: 4px solid #4885ff;
+  border-right: 4px solid #15addb;
+  border-bottom: 4px solid #1f47f8b3;
+  border-left: 4px solid #0a2f5f;
+}
