@@ -23,6 +23,27 @@
             background-color: #007BFF;
             color: #fff;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .delete-button {
+            color: red;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +51,7 @@
     <h1>記事一覧</h1>
 
     <div class="tag-buttons">
-        <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
+        <form id="tag-filter-form" method="GET" action="{{ route('article.delete') }}">
             @foreach ($tags as $tag)
                 <label class="tag-checkbox">
                     <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
@@ -49,6 +70,7 @@
                 <th>内容</th>
                 <th>タグ</th>
                 <th>投稿日</th>
+                <th>削除</th>
             </tr>
         </thead>
         <tbody>
@@ -64,6 +86,14 @@
                         </ul>
                     </td>
                     <td>{{ $article->created_at->format('Y-m-d') }}</td>
+                    <td>
+                        <!-- 削除ボタン -->
+                        <form action="{{ route('admin.article.delete', $article->id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button">削除</button>
+                        </form>
+                    </td>
                 </tr>
             @empty
                 <tr>
