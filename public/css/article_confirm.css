@@ -1,10 +1,22 @@
 @charset "UTF-8";
-footer,header{
-  background-color: #6093F8;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 main{
-    padding: 5% 0 5% 0;
+    flex: 1;
     background-color: #F0FFFF;
+}
+footer,header{
+    height: 5%;
+    background-color: #6093F8;
 }
 .page_title{
     margin: 0 auto;
