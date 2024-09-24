@@ -18,7 +18,7 @@
                         <li class="tag">{{ $tag->name }}</li>
                     @endforeach
                 <p class="contents">{{ $question->text }}</p>
-                <a href="{{ route('question.delete',$question->id) }}" class="btn btn-danger">削除</a>
+                <a href="{{ route('question.delete', $question->id) }}" class="btn btn-danger" onclick="return confirm('本当に削除しますか？');">削除</a>
             </article>
         @empty
             <p>知恵袋がありません。</p>
