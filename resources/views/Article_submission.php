@@ -44,13 +44,13 @@
     </main>
     <footer>
         <ul>
-            <li class="foot"><img src="{{ asset('images/知恵袋アイコン.png) }}"><a href="">知恵袋<br>投稿</a></li>
+            <li class="foot"><img src="{{ asset('image/知恵袋アイコン.png) }}"><a href="">知恵袋<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
-            <li class="foot"><img src="{{ asset('/images/記事アイコン.png)}}"><a href="">記事<br>投稿</a></li>
+            <li class="foot"><img src="{{ asset('/image/記事アイコン.png)}}"><a href="">記事<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
-            <li class="foot"><img src="{{ asset('/images/知恵袋一覧アイコン.png) }}"><a href="">知恵袋<br>一覧</a></li>
+            <li class="foot"><img src="{{ asset('/image/知恵袋一覧アイコン.png) }}"><a href="">知恵袋<br>一覧</a></li>
             <li class="foot2"><img src=""></li>
-            <li class="foot"><img src="{{ asset('/images/記事一覧アイコン.png) }}" ><a href="">記事<br>一覧</a></li>   
+            <li class="foot"><img src="{{ asset('/image/記事一覧アイコン.png) }}" ><a href="">記事<br>一覧</a></li>   
         </ul>
     </footer>
     
