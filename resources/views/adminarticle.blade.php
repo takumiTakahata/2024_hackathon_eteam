@@ -29,7 +29,7 @@
                     <iframe width="80%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 @endif
-                <a href="{{ route('article.delete',$article->id) }}" class="btn btn-danger">削除</a>
+                <a href="{{ route('article.delete',$article->id) }}" class="btn btn-danger"onclick="return confirm('本当に削除しますか？');">削除</a>
             </article>
         @empty
             <p>記事がありません。</p>

@@ -1,32 +1,37 @@
 @charset "UTF-8";
-<<<<<<< HEAD
 /* スマホ画面用のCSS */
 @media only screen and (max-width: 600px) {
-=======
->>>>>>> main
+
+main,html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
     main{
-        padding: 5% 0 5% 0;
+        flex: 1;
         background-color: #F0FFFF;
     }
     footer,header{
+        height: 5%;
         background-color: #6093F8;
     }
     .explanation{
         text-align: center;
         width: 85%;
         background-color: #FFFFFF;
-<<<<<<< HEAD
         margin: 0 auto;
-=======
         margin: 3% auto 3% auto;
->>>>>>> main
         font-size: 1rem;
         border-top: 2px solid #80DCF9;
         border-bottom: 2px solid #80DCF9; 
     }
     .recommendation{
-<<<<<<< HEAD
-=======
         justify-content: center;
         margin: 0 auto;
         width: 85%;
@@ -34,20 +39,16 @@
         flex-wrap: wrap;
     }
     .recommendation >p{
->>>>>>> main
         font-size: 1.2rem;
         text-align: center;
     }
     article{
-<<<<<<< HEAD
         border-radius: 10%;
-=======
         border-radius: 20px;
->>>>>>> main
         text-align: center;
         background-color: #FFFFFF;
         width: 85%;
-        margin: 0 auto 5% auto;
+        margin: 5% auto 5% auto;
     }
     .title{
         font-size: 1.2rem;
@@ -69,16 +70,11 @@
         word-break: break-all;
     }
     details > summary {
-<<<<<<< HEAD
-=======
         width: 80%;
->>>>>>> main
         list-style: none;
         cursor: pointer;
         display: inline;
     }
-<<<<<<< HEAD
-=======
     .into_title{
         border-bottom: 1px solid;
         font-size: 1rem;
@@ -146,7 +142,7 @@
         content: '';
     }
 a.btn-solid {
-    margin: 1% auto 2% 5%;
+    margin: 10% auto 10% 5%;
     color: #fff;
     border-top: 4px solid #2d92f7;
     border-right: 4px solid #18069b;
@@ -171,5 +167,5 @@ a.btn-solid:hover {
     border-left: 4px solid #18f6f2;
     border-radius: 0;
     background: #0040fe;
->>>>>>> main
+}
 }
