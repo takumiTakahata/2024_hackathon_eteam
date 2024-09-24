@@ -81,7 +81,7 @@
     </main>
     <footer>
         <ul>
-            <li class="foot"><a href=""><img src="">知恵袋<br>投稿</a></li>
+            <li class="foot"><img src="{{ asset('image/知恵袋アイコン.png) }}"><a href="">知恵袋<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
             <li class="foot"><a href="">記事<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
