@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'text', 'delete_flag'];
+    protected $fillable = ['title', 'text', 'delete_flag','user_id'];
 
     public function tags()
     {
@@ -22,5 +22,9 @@ class Article extends Model
         static::addGlobalScope('notDeleted', function ($query) {
             $query->where('delete_flag', false);
         });
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
