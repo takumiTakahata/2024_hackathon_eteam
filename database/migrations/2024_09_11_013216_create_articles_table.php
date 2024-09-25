@@ -18,7 +18,6 @@ class CreateArticlesTable extends Migration
             $table->string('title');         // 記事のタイトル
             $table->text('text');            // 記事の本文
             $table->boolean('popular')->nullable();  // 人気記事かどうか（NULL許可）
-            $table->integer('popular')->default(0);  // 人気記事かどうか（NULL許可）
             $table->string('movie_url')->nullable(); // 動画のURL（NULL許可）
             $table->foreignId('user_id')           // ユーザーID
                   ->constrained()                  // usersテーブルのIDを参照
