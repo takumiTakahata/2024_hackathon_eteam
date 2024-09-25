@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\QuestionController;
+require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -15,7 +16,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [ArticleController::class, 'index'])->name('index');
 Route::get('/add/question/', [QuestionController::class, 'questionCreate'])->name('qestionCreate');
 Route::post('/comfirm/question/', [QuestionController::class, 'questionConfirm'])->name('question.Confirm');
 Route::post('/question/add', [QuestionController::class, 'questionAdd'])->name('question.add');
@@ -31,7 +31,6 @@ Route::get('/articles', [ArticleController::class, 'articleindex'])->name('artic
 Route::get('/adminarticles', [ArticleController::class, 'adminarticle'])->middleware(['auth', 'verified'])->name('adminarticle.index');
 Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])->middleware(['auth', 'verified'])->name('article.delete');
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
-Route::get('/adminquestion', [QuestionController::class, 'questionindex'])->middleware(['auth', 'verified'])->name('adminquestion.index');
-Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete');
-
+Route::get('/adminquestion', [QuestionController::class, 'adminquestion'])->middleware(['auth', 'verified'])->name('adminquestion.index');
+Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete'); 
 require __DIR__ . '/auth.php';

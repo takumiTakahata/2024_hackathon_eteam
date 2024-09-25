@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/* スマホ画面用のCSS */
-@media only screen and (max-width: 600px) {
-
 main,html, body {
         height: 100%;
         margin: 0;
@@ -15,6 +12,7 @@ main,html, body {
     }
     main{
         flex: 1;
+        overflow: auto; 
         background-color: #F0FFFF;
     }
     footer,header{
