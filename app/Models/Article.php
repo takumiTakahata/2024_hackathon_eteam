@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'text', 'delete_flag'];
+    protected $fillable = ['title', 'text', 'delete_flag','user_id'];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
@@ -22,5 +23,9 @@ class Article extends Model
             $query->where('delete_flag', false);
         });
 
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

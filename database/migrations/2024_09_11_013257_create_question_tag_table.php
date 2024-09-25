@@ -19,7 +19,7 @@ class CreateQuestionTagTable extends Migration
             $table->unsignedBigInteger('tags_id');       // tagsテーブルのidを参照
 
             // 外部キー制約
-            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->foreign('tags_id')->references('id')->on('tags')->onDelete('cascade');
 
             $table->timestamps();  // created_at, updated_atのタイムスタンプ

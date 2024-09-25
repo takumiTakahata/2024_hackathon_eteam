@@ -35,4 +35,6 @@ class CreateArticlesTagTable extends Migration
     {
         Schema::dropIfExists('articles_tag');
     }
+
+    
 }
