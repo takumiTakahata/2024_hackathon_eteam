@@ -12,6 +12,7 @@ body {
 }
 main{
     flex: 1;
+    padding: 2% 0;
     overflow: auto; 
     background-color: #F0FFFF;
 }
