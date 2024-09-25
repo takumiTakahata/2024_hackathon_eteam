@@ -1,15 +1,31 @@
 @charset "UTF-8";
+/* スマホ画面用のCSS */
+@media only screen and (max-width: 600px) {
+
+main,html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
     main{
-        padding: 5% 0 5% 0;
+        flex: 1;
         background-color: #F0FFFF;
     }
     footer,header{
+        height: 5%;
         background-color: #6093F8;
     }
     .explanation{
         text-align: center;
         width: 85%;
         background-color: #FFFFFF;
+        margin: 0 auto;
         margin: 3% auto 3% auto;
         font-size: 1rem;
         border-top: 2px solid #80DCF9;
@@ -27,11 +43,12 @@
         text-align: center;
     }
     article{
+        border-radius: 10%;
         border-radius: 20px;
         text-align: center;
         background-color: #FFFFFF;
         width: 85%;
-        margin: 0 auto 5% auto;
+        margin: 5% auto 5% auto;
     }
     .title{
         font-size: 1.2rem;
@@ -125,7 +142,7 @@
         content: '';
     }
 a.btn-solid {
-    margin: 1% auto 2% 5%;
+    margin: 10% auto 10% 5%;
     color: #fff;
     border-top: 4px solid #2d92f7;
     border-right: 4px solid #18069b;
@@ -150,4 +167,5 @@ a.btn-solid:hover {
     border-left: 4px solid #18f6f2;
     border-radius: 0;
     background: #0040fe;
+}
 }
