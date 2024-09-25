@@ -9,7 +9,6 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'text', 'delete_flag'];
-
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
@@ -22,5 +21,6 @@ class Article extends Model
         static::addGlobalScope('notDeleted', function ($query) {
             $query->where('delete_flag', false);
         });
+
     }
 }

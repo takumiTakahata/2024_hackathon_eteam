@@ -64,7 +64,7 @@ class ArticleController extends Controller
                 'tags_id' => $tagId,
             ]);
         }
-
+        return redirect()->route('article_list');
         return redirect()->route('article.index');
     }
 

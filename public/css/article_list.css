@@ -1,0 +1,203 @@
+@charset "UTF-8";
+header {
+    width: 393px;
+    height: 71px;
+    background-color: blue;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+}
+
+main {
+    padding: 10px;
+}
+
+h1 {
+    margin: 20px;
+    padding: 2px 10px;/*文字の上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: #ffffff;/*背景色*/
+    border-left: solid 25px #7db4e6;/*左線*/
+    border-bottom: solid 3px #7db4e6;/*下線*/
+  }
+
+  .tag-search-container {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.search-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* タグ検索 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    width: 85px;
+    height: 32px;
+    margin: auto;
+    border: 1px solid #333;
+    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+.tag.active {
+    background-color: #add8e6;
+    border-color: #add8e6;
+}
+
+.filters {
+    text-align: center;
+}
+
+.filter {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 3px 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+.filter.active {
+    background-color: #add8e6;
+    border-color: #add8e6;
+}
+.span_two {
+    font-size: 10px;
+    margin: 10px;
+}
+
+/* 投稿された記事 */
+.Post {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+
+.posted_on{
+    font-size: 0.8rem;
+    text-align: left;
+}
+.tag{
+
+    font-size: 17px;
+    display: inline;
+}
+
+.serch {
+    border-bottom: solid 1px black;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.action {
+    font-size: 20px;
+}
+
+/* 投稿された記事 */
+
+.list {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .item {
+    width: 342px;
+    height: 59px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .date {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 0 10px 0 40px;
+  }
+  
+  .title {
+    border-bottom: solid 1px black;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tagsd {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .actions {
+    margin-right: 20px;
+  }
+  
+  .likes {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 16px;
+    margin-right: 5px;
+  }
+  
+  .arrow {
+    font-size: 20px;
+    color: #333;
+    margin-left: 10px;
+  }
+
+/* footer */
+.foot {
+    display: flex;
+    font-size: 12px;
+    padding: 20px;
+}
+
+.foot a {
+    text-decoration: none;
+}
+
+.foot2{
+    display: flex;
+    padding: 5px;
+}
+
+ul {
+    border-top: solid 2px black;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+  
