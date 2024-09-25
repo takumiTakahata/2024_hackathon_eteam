@@ -8,8 +8,8 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $table = 'question';
-    protected $fillable = ['title', 'text', 'delete_flag'];
+    protected $table = 'questions';
+    protected $fillable = ['title', 'text', 'delete_flag','user_id'];
 
 
     public function tags()
@@ -29,6 +29,10 @@ class Question extends Model
         static::addGlobalScope('notDeleted', function ($query) {
             $query->where('delete_flag', false);
         });
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
