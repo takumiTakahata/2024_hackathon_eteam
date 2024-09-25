@@ -8,13 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'articles_tag', 'article_id', 'tag_id');
-=======
     protected $fillable = ['title', 'text', 'delete_flag'];
-
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'articles_tag', 'articles_id', 'tags_id');
@@ -27,6 +21,6 @@ class Article extends Model
         static::addGlobalScope('notDeleted', function ($query) {
             $query->where('delete_flag', false);
         });
->>>>>>> main
+
     }
 }

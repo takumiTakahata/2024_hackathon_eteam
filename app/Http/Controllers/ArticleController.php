@@ -22,10 +22,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'tags' => 'required|array',
-<<<<<<< HEAD
-=======
             'youtube_url' => ['nullable', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/'],
->>>>>>> main
         ]);
 
         // タグ情報を取得
@@ -37,10 +34,7 @@ class ArticleController extends Controller
             'content' => $validatedData['content'],
             'tags' => $tags,
             'tag_ids' => $validatedData['tags'],
-<<<<<<< HEAD
-=======
             'youtube_url' => $validatedData['youtube_url'],
->>>>>>> main
         ]);
     }
 
@@ -51,22 +45,16 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'tags' => 'required|array',
-<<<<<<< HEAD
-=======
             'youtube_url' => ['nullable', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/'],
->>>>>>> main
         ]);
 
         // 記事を保存
         $article = new Article();
         $article->title = $validatedData['title'];
         $article->text = $validatedData['content'];
-<<<<<<< HEAD
-=======
         if (!empty($validatedData['youtube_url'])) {
             $article->movie_url = $validatedData['youtube_url'];
         }
->>>>>>> main
         $article->save();
 
         // 記事とタグの中間テーブルに保存
@@ -76,10 +64,7 @@ class ArticleController extends Controller
                 'tags_id' => $tagId,
             ]);
         }
-
-<<<<<<< HEAD
         return redirect()->route('article_list');
-=======
         return redirect()->route('article.index');
     }
 
@@ -195,6 +180,5 @@ class ArticleController extends Controller
         $tags = Tag::all();
 
         return view('adminarticle', ['articles' => $articles, 'tags' => $tags]);
->>>>>>> main
     }
 }

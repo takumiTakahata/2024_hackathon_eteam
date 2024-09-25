@@ -34,17 +34,13 @@
             <input type="text" class="title">
         </div>
 
-        <div class="url">
-            <h2>▶投稿動画<span class="span_two">(任意)</span></h2>
-            <input type="text" class="you"  placeholder="URL">
-        </div>
-
+        
         <a href="" class="btn btn-flat"><span>確認画面に進む</span></a>
     </div>
     </main>
     <footer>
         <ul>
-            <li class="foot"><img src="{{ asset('/image/知恵袋アイコン.png) }}"><a href="">知恵袋<br>投稿</a></li>
+            <li class="foot"><img src="{{ asset('image/知恵袋アイコン.png) }}"><a href="">知恵袋<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
             <li class="foot"><img src="{{ asset('/image/記事アイコン.png)}}"><a href="">記事<br>投稿</a></li>
             <li class="foot2"><img src=""></li>
