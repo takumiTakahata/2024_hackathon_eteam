@@ -15,9 +15,13 @@ main{
     overflow: auto; 
     background-color: #F0FFFF;
 }
-header{
+header,footer{
     height: 7%;
     background-color: #6093F8;
+}
+header{
+    display: flex;
+    justify-content: space-between;
 }
 .page_title{
     margin: 0 auto;
