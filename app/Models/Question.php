@@ -8,7 +8,7 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $table = 'question';
+    protected $table = 'questions';
     protected $fillable = ['title', 'text', 'delete_flag','user_id'];
 
 

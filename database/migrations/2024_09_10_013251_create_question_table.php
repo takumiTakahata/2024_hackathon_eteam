@@ -16,7 +16,7 @@ class CreateQuestionTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id('id');                      // プライマリーキー
             $table->string('title');               // 質問のタイトル
-            $table->text('content');               // 質問の内容
+            $table->text('text');               // 質問の内容
             $table->foreignId('user_id')           // ユーザーID
                   ->constrained()                  // usersテーブルのIDを参照
                   ->onDelete('cascade');           // ユーザー削除時に質問も削除
