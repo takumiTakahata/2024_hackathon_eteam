@@ -1,5 +1,8 @@
 @charset "UTF-8";
-    html, body {
+/* スマホ画面用のCSS */
+@media only screen and (max-width: 600px) {
+
+main,html, body {
         height: 100%;
         margin: 0;
         padding: 0;
@@ -22,6 +25,7 @@
         text-align: center;
         width: 85%;
         background-color: #FFFFFF;
+        margin: 0 auto;
         margin: 3% auto 3% auto;
         font-size: 1rem;
         border-top: 2px solid #80DCF9;
@@ -39,6 +43,7 @@
         text-align: center;
     }
     article{
+        border-radius: 10%;
         border-radius: 20px;
         text-align: center;
         background-color: #FFFFFF;
@@ -162,4 +167,5 @@ a.btn-solid:hover {
     border-left: 4px solid #18f6f2;
     border-radius: 0;
     background: #0040fe;
+}
 }
