@@ -15,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::get('/', [ArticleController::class, 'index'])->name('index');
 Route::get('/add/question/', [QuestionController::class, 'questionCreate'])->name('qestionCreate');
 Route::post('/comfirm/question/', [QuestionController::class, 'questionConfirm'])->name('question.Confirm');
 Route::post('/question/add', [QuestionController::class, 'questionAdd'])->name('question.add');
