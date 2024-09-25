@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
 use App\Models\Articles_Tag;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -48,10 +49,14 @@ class ArticleController extends Controller
             'youtube_url' => ['nullable', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/'],
         ]);
 
+        // ログイン中のユーザーのIDを取得
+        $userId = Auth::id();
+
         // 記事を保存
         $article = new Article();
         $article->title = $validatedData['title'];
         $article->text = $validatedData['content'];
+        $article->user_id = $userId;
         if (!empty($validatedData['youtube_url'])) {
             $article->movie_url = $validatedData['youtube_url'];
         }
@@ -64,7 +69,7 @@ class ArticleController extends Controller
                 'tags_id' => $tagId,
             ]);
         }
-        return redirect()->route('article_list');
+
         return redirect()->route('article.index');
     }
 
