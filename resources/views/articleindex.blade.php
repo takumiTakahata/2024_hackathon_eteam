@@ -8,6 +8,10 @@
     <title>記事一覧</title>
 </head>
 <body>
+    <header>
+        <a href="{{route('index')}}">アプリ名</a>
+        <a href="{{route('login')}}"><p>ログイン</p>
+    </header>
     <main>
         <p class="page_title">記事一覧</p>
         <div class="tag-buttons">
@@ -43,13 +47,13 @@
     </main>
     <footer>
     <ul>
-      <li class="foot"><img src="/image/知恵袋アイコン.png"><a href="{{route('qestionCreate')}}">知恵袋<br>投稿</a></li>
+      <li class="foot"><img src="/image/知恵袋アイコン.png"><a href="{{route('qestionCreate')}}"><p>知恵袋</p><p>投稿</p></a></li>
       <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/記事アイコン.png"><a href="{{route('articleCreate')}}">記事<br>投稿</a></li>
+      <li class="foot"><img src="/image/記事アイコン.png"><a href="{{route('articleCreate')}}"><p>記事</p><p>投稿</p></a></li>
       <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('question.index')}}">知恵袋<br>一覧</a></li>
+      <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('question.index')}}"><p>知恵袋</p><p>一覧</p></a></li>
       <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}">記事<br>一覧</a></li>
+      <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}"><p>記事</p><p>一覧</p></a></li>
     </ul>
   </footer>
 </body>
