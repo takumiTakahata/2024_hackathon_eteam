@@ -8,6 +8,9 @@
     <title>知恵袋詳細</title>
 </head>
 <body>
+    <header>
+        <p>アプリ名</p>
+    </header>
     <main>
         <p class="page_title">知恵袋詳細</p>
         <div class="question">

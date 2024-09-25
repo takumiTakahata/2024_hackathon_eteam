@@ -22,6 +22,7 @@ class Article extends Model
         static::addGlobalScope('notDeleted', function ($query) {
             $query->where('delete_flag', false);
         });
+
     }
     public function user()
     {

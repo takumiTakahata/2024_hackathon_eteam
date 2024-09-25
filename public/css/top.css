@@ -1,5 +1,5 @@
 @charset "UTF-8";
-    html, body {
+main,html, body {
         height: 100%;
         margin: 0;
         padding: 0;
@@ -12,6 +12,7 @@
     }
     main{
         flex: 1;
+        overflow: auto; 
         background-color: #F0FFFF;
     }
     footer,header{
@@ -22,6 +23,7 @@
         text-align: center;
         width: 85%;
         background-color: #FFFFFF;
+        margin: 0 auto;
         margin: 3% auto 3% auto;
         font-size: 1rem;
         border-top: 2px solid #80DCF9;
@@ -39,6 +41,7 @@
         text-align: center;
     }
     article{
+        border-radius: 10%;
         border-radius: 20px;
         text-align: center;
         background-color: #FFFFFF;

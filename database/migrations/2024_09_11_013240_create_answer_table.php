@@ -17,7 +17,8 @@ class CreateAnswerTable extends Migration
             $table->id();                // プライマリーキー
             $table->text('text');        // 回答の本文
             $table->unsignedBigInteger('question_id'); // questionテーブルのIDを参照
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
+            // 外部キー制約
+            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
             $table->timestamps();        // created_at, updated_atのタイムスタンプ
         });
     }

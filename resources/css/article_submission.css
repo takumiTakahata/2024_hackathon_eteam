@@ -1,0 +1,73 @@
+main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 10px;
+}
+
+.top {
+    
+}
+
+h1 {
+    font-size: 17px;
+    padding: 4px 10px;/*文字の上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: #ffffff;/*背景色*/
+    border-left: solid 25px #7db4e6;/*左線*/
+    border-bottom: solid 3px #7db4e6;/*下線*/
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 30px 0;
+}
+
+.span_two {
+    font-size: 10px;
+    margin: 10px;
+}
+
+.title {
+    border-style: none;
+    border-bottom: solid 1px black;
+    background-color: #f0f8ff;
+}
+
+.you {
+    height: 15px;
+    width: 313px;
+}
+
+.button {
+    margin: 20px 0px;
+    width: 191px;
+    height: 27px;
+}
+
+/* footer */
+.foot {
+    display: flex;
+    font-size: 12px;
+    padding: 20px;
+}
+
+.foot a {
+    text-decoration: none;
+}
+
+.foot2{
+    display: flex;
+    padding: 5px;
+}
+
+ul {
+    border-top: solid 2px black;
+    display: flex;
+    justify-content: center;
+}
