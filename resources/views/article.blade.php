@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <header>
+    <img src="/image/フリーレン 2.png">
+  </header>
   <main>
     <p class="page_title">記事の投稿</p>
     <form action="{{route('article.comfirm')}}" method="POST">

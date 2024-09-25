@@ -14,7 +14,7 @@ main{
     flex: 1;
     background-color: #F0FFFF;
 }
-footer,header{
+header{
     height: 5%;
     background-color: #6093F8;
 }
