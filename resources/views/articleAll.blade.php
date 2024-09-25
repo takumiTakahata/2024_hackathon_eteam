@@ -20,9 +20,11 @@
             <p class="title">{{ $article->title}}</p>
             <!-- タグ確認 -->
             <ul class="tag-group">
-                @foreach (explode(',', str_replace(['[', ']', '"'], '', $article_tag)) as $tag)
-                    <li>{{ $tag }}</li>
-                @endforeach
+                @forelse ($article->tags as $tag)
+                <li>{{ $tag->name }}</li>
+                @empty
+                <li>タグはありません</li>
+                @endforelse
             </ul>
             @if ($article->movie_url)
             @php
