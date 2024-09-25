@@ -12,7 +12,7 @@ class CreateDeleteFlagTable extends Migration
             $table->boolean('delete_flag')->default(false);
         });
 
-        Schema::table('question', function (Blueprint $table) {
+        Schema::table('questions', function (Blueprint $table) {
             $table->boolean('delete_flag')->default(false);
         });
     }
@@ -23,7 +23,7 @@ class CreateDeleteFlagTable extends Migration
             $table->dropColumn('delete_flag');
         });
 
-        Schema::table('question', function (Blueprint $table) {
+        Schema::table('questions', function (Blueprint $table) {
             $table->dropColumn('delete_flag');
         });
     }

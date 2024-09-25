@@ -13,12 +13,14 @@ class CreateQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('question', function (Blueprint $table) {
-            $table->id();               // プライマリーキー
-            $table->string('title');    // 質問のタイトル
-            $table->text('text');       // 質問の本文
-            $table->timestamps();       // created_at, updated_atのタイムスタンプ
-        });
+        Schema::create('questions', function (Blueprint $table) {
+            $table->id('id');                      // プライマリーキー
+            $table->string('title');               // 質問のタイトル
+            $table->text('text');               // 質問の内容
+            $table->foreignId('user_id')           // ユーザーID
+                  ->constrained()                  // usersテーブルのIDを参照
+                  ->onDelete('cascade');           // ユーザー削除時に質問も削除
+            $table->timestamps();   });
     }
 
     /**
