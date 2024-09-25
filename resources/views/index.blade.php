@@ -58,7 +58,7 @@
                     </div>
                 </summary>
                 <p class="contents">{{ $top_data[1]["text"] }}</p>
-            @if ($top_data[2]["movie_url"])
+            @if ($top_data[1]["movie_url"])
             @php
             // YouTubeのURLをembed用に変換
             $youtube_url =$top_data[1]["movie_url"];

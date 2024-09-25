@@ -1,9 +1,9 @@
 @charset "UTF-8";
 main,html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
     body {
         display: flex;
@@ -12,6 +12,7 @@ main,html, body {
     }
     main{
         flex: 1;
+        padding: 2% 0;
         overflow: auto; 
         background-color: #F0FFFF;
     }
