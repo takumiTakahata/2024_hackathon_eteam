@@ -43,10 +43,15 @@
         {{ $questions->appends(request()->except('page'))->links('pagination.custom') }}
     </main>
     <footer>
-        <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
-        <a href="{{route('articleCreate')}}">記事投稿</a>
-        <a href="{{route('question.index')}}">知恵袋一覧</a>
-        <a href="{{route('article.index')}}">記事一覧</a>
-    </footer>
+    <ul>
+      <li class="foot"><img src="/image/知恵袋アイコン.png"><a href="{{route('qestionCreate')}}">知恵袋<br>投稿</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/記事アイコン.png"><a href="{{route('articleCreate')}}">記事<br>投稿</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('question.index')}}">知恵袋<br>一覧</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}">記事<br>一覧</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

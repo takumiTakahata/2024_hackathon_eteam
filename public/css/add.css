@@ -126,3 +126,32 @@ footer,header{
   border-bottom: 4px solid #48dbec;
   border-left: 4px solid #0a475f;
 }
+
+/* footer */
+.foot {
+    display: flex;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.foot a {
+    text-decoration: none;
+
+}
+
+.foot2 {
+    display: flex;
+    padding: 5px;
+}
+
+ul {
+    border-top: solid 2px black;
+    display: flex;
+}
+
+img {
+    margin: 2px;
+    width: 24px;
+    height: 24px;
+    
+}

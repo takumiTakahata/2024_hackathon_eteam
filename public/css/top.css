@@ -169,3 +169,25 @@ a.btn-solid:hover {
     background: #0040fe;
 }
 }
+
+/* footer */
+.foot {
+    display: flex;
+    font-size: 12px;
+    padding: 20px;
+}
+
+.foot a {
+    text-decoration: none;
+}
+
+.foot2 {
+    display: flex;
+    padding: 5px;
+}
+
+ul {
+    border-top: solid 2px black;
+    display: flex;
+    justify-content: center;
+}

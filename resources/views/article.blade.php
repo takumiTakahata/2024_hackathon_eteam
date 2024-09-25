@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="/css/add.css">
   <title>Document</title>
 </head>
+
 <body>
   <main>
     <p class="page_title">記事の投稿</p>
@@ -18,7 +20,7 @@
         <p class="caveat">必須</p>
       </div>
       <input type="text" class="title_form" id="title" name="title" placeholder="タイトルを入力してください" required>
-      
+
       <!-- タグ選択（複数可） -->
       <div class="heading">
         <label for="tags" class="title">➤分類タグ</label>
@@ -26,8 +28,8 @@
       </div>
       <div class="tags_list">
         @foreach ($tags as $tag)
-          <input type="checkbox" class="tags_form" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-          <label class="check_label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+        <input type="checkbox" class="tags_form" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+        <label class="check_label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
         @endforeach
       </div>
 
@@ -52,10 +54,16 @@
     </form>
   </main>
   <footer>
-    <a href="{{route('qestionCreate')}}">知恵袋投稿</a>
-    <a href="{{route('articleCreate')}}">記事投稿</a>
-    <a href="{{route('question.index')}}">知恵袋一覧</a>
-    <a href="{{route('article.index')}}">記事一覧</a>
+    <ul>
+      <li class="foot"><img src="/image/知恵袋アイコン.png"><a href="{{route('qestionCreate')}}">知恵袋<br>投稿</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/記事アイコン.png"><a href="{{route('articleCreate')}}">記事<br>投稿</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('question.index')}}">知恵袋<br>一覧</a></li>
+      <li class="foot2"><img src="/image/Line.png"></li>
+      <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}">記事<br>一覧</a></li>
+    </ul>
   </footer>
 </body>
+
 </html>
