@@ -10,7 +10,7 @@
 <body>
     <header>
         <p>アプリ名</p>
-        <a href="{{route('login')}}"><p>ログイン</p>
+        <a href="{{route('login')}}"><p>ログイン</p></a>
     </header>
     <main>
         <div class="explanation">
