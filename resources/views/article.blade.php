@@ -12,7 +12,7 @@
 <body>
     <header>
         <a href="{{route('index')}}">アプリ名</a>
-        <a href="{{route('login')}}"><p>ログイン</p>
+        <a href="{{route('login')}}"><p>ログイン</p></a>
     </header>
   <main>
     <p class="page_title">記事の投稿</p>

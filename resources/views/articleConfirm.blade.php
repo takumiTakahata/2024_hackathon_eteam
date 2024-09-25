@@ -3,7 +3,7 @@
 <!-- 確認画面 (confirm.blade.php) -->
   <header>
     <a href="{{route('index')}}">アプリ名</a>
-    <a href="{{route('login')}}"><p>ログイン</p>
+    <a href="{{route('login')}}"><p>ログイン</p></a>
   </header>
  <main>
   <p class="page_title">投稿記事確認</p>

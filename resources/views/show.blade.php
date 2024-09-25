@@ -8,7 +8,7 @@
 <body>
   <header>
     <a href="{{route('index')}}">アプリ名</a>
-    <a href="{{route('login')}}"><p>ログイン</p>
+    <a href="{{route('login')}}"><p>ログイン</p></a>
   </header>
 <form action="{{ route('question.add') }}" method="POST">
   @csrf
