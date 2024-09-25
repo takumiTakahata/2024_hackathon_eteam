@@ -34,5 +34,5 @@ Route::get('/articles/delete/{id}', [ArticleController::class, 'deleteArticle'])
 Route::get('/question', [QuestionController::class, 'questionindex'])->name('question.index');
 Route::get('/adminquestion', [QuestionController::class, 'adminquestion'])->middleware(['auth', 'verified'])->name('adminquestion.index');
 Route::get('/question/delete/{id}', [QuestionController::class, 'deleteQuestion'])->middleware(['auth', 'verified'])->name('question.delete'); 
-Route::get('/myposts', [UserPostController::class, 'index'])->middleware('auth')->name('user.posts.index');
+Route::get('/userpost', [UserPostController::class, 'index'])->middleware('auth');
 require __DIR__.'/auth.php';

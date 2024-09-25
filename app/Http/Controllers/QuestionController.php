@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Models\Tag;
 use App\Models\QuestionTag;
 use App\Models\Answer;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -38,30 +39,34 @@ class QuestionController extends Controller
     }
 
     public function questionAdd(Request $request)
-    {
-        // バリデーション
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'text' => 'required',
-            'tags' => 'required|array',
+{
+    // バリデーション
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'text' => 'required',
+        'tags' => 'required|array',
+    ]);
+
+    // ログイン中のユーザーのIDを取得
+    $userId = Auth::id();
+
+    // 知恵袋保存
+    $question = new Question();
+    $question->title = $validatedData['title'];
+    $question->text = $validatedData['text'];
+    $question->user_id = $userId; // user_id を設定
+    $question->save();
+
+    // 中間テーブルに保存
+    foreach ($validatedData['tags'] as $tagId) {
+        QuestionTag::create([
+            'question_id' => $question->id,
+            'tags_id' => $tagId,
         ]);
-
-        // 知恵袋保存
-        $question = new Question();
-        $question->title = $validatedData['title'];
-        $question->text = $validatedData['text'];
-        $question->save();
-
-        // 中間テーブルに保存
-        foreach ($validatedData['tags'] as $tagId) {
-            QuestionTag::create([
-                'question_id' => $question->id,
-                'tags_id' => $tagId,
-            ]);
-        }
-
-        return redirect()->route('question.index');
     }
+
+    return redirect()->route('question.index');
+}
 
     public function show($id)
     {

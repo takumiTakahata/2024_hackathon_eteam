@@ -1,18 +1,23 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\Post;
 use App\Models\Question;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserPostController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $articles = Article::where('user_id', $user->id)->get();
-        $questions = Question::where('user_id', $user->id)->get();
+        // 現在のユーザーのIDを取得
+        $userId = Auth::id();
 
-        return view('user_posts.index', compact('articles', 'questions'));
+        // ユーザーに関連する投稿と質問を取得
+        $posts = Post::where('user_id', $userId)->get();
+        $questions = Question::where('user_id', $userId)->get();
+
+        // ビューにデータを渡す
+        return view('userpost', compact('posts', 'questions'));
     }
 }
