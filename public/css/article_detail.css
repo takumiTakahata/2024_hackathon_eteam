@@ -16,8 +16,12 @@ main{
     background-color: #F0FFFF;
 }
 footer,header{
-    height: 5%;
+    height: 20%;
     background-color: #6093F8;
+}
+header{
+    display: flex;
+    justify-content: space-between;
 }
 .page_title{
     margin: 0 auto;
@@ -80,8 +84,7 @@ footer,header{
 /* footer */
 .foot {
     display: flex;
-    font-size: 12px;
-    padding: 20px;
+    font-size: 1rem;
 }
 
 .foot a {
@@ -90,7 +93,6 @@ footer,header{
 
 .foot2 {
     display: flex;
-    padding: 5px;
 }
 
 ul {
@@ -101,8 +103,8 @@ ul {
 
 img {
     margin: 2px;
-    width: 24px;
-    height: 24px;
+    width: 20%;
+    height: 20%;
     
 }
 

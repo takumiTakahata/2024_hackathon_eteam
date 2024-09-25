@@ -16,8 +16,12 @@ main{
     background-color: #F0FFFF;
 }
 footer,header{
-    height: 5%;
+    height: 7%;
     background-color: #6093F8;
+}
+header{
+    display: flex;
+    justify-content: space-between;
 }
 .page_title{
     margin: 0 auto;
@@ -168,8 +172,7 @@ button.btn-success p {
 /* footer */
 .foot {
   display: flex;
-  font-size: 12px;
-  padding: 20px;
+  font-size: 0.8rem;
 }
 
 .foot a {
@@ -178,20 +181,14 @@ button.btn-success p {
 
 .foot2 {
   display: flex;
-  padding: 5px;
 }
 
 ul {
-  border-top: solid 2px black;
   display: flex;
   justify-content: center;
 }
 
 img {
-  margin: 2px;
-  width: 24px;
-  height: 24px;
-  
+  width: 30%;
+  height: 40%; 
 }
-
-
