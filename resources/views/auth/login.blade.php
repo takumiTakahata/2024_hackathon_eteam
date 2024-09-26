@@ -7,6 +7,12 @@
 
         <!-- Email Address -->
         <div>
+            @if (session('message'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('message') }}
+            </div>
+            @endif
+
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
