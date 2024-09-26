@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <p>アプリ名</p>
+        <p>カジの輪</p>
         @auth
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>

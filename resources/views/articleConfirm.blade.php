@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/article_confirm.css">
 <!-- 確認画面 (confirm.blade.php) -->
   <header>
-    <a href="{{route('index')}}">アプリ名</a>
+    <a href="{{route('index')}}">カジの輪</a>
         @auth
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>
