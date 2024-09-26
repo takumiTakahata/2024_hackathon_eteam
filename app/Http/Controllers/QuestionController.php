@@ -13,8 +13,12 @@ class QuestionController extends Controller
 {
     public function questionCreate(Request $request)
     {
-        $tags = Tag::all();
-        return view('question', ['tags' => $tags]);
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('message', '投稿には、ログインをしてください。');
+        } else {
+            $tags = Tag::all();
+            return view('question', ['tags' => $tags]);
+        }
     }
 
     public function questionConfirm(Request $request)
@@ -39,34 +43,34 @@ class QuestionController extends Controller
     }
 
     public function questionAdd(Request $request)
-{
-    // バリデーション
-    $validatedData = $request->validate([
-        'title' => 'required|string|max:255',
-        'text' => 'required',
-        'tags' => 'required|array',
-    ]);
-
-    // ログイン中のユーザーのIDを取得
-    $userId = Auth::id();
-
-    // 知恵袋保存
-    $question = new Question();
-    $question->title = $validatedData['title'];
-    $question->text = $validatedData['text'];
-    $question->user_id = $userId; // user_id を設定
-    $question->save();
-
-    // 中間テーブルに保存
-    foreach ($validatedData['tags'] as $tagId) {
-        QuestionTag::create([
-            'question_id' => $question->id,
-            'tags_id' => $tagId,
+    {
+        // バリデーション
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'text' => 'required',
+            'tags' => 'required|array',
         ]);
-    }
 
-    return redirect()->route('question.index');
-}
+        // ログイン中のユーザーのIDを取得
+        $userId = Auth::id();
+
+        // 知恵袋保存
+        $question = new Question();
+        $question->title = $validatedData['title'];
+        $question->text = $validatedData['text'];
+        $question->user_id = $userId; // user_id を設定
+        $question->save();
+
+        // 中間テーブルに保存
+        foreach ($validatedData['tags'] as $tagId) {
+            QuestionTag::create([
+                'question_id' => $question->id,
+                'tags_id' => $tagId,
+            ]);
+        }
+
+        return redirect()->route('question.index');
+    }
 
     public function show($id)
     {
@@ -130,7 +134,7 @@ class QuestionController extends Controller
             return redirect()->back()->with('error', '知恵袋が見つかりませんでした。');
         }
     }
-        public function adminquestion(Request $request)
+    public function adminquestion(Request $request)
     {
         $query = Question::with('tags');
 
