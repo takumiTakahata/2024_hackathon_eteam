@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,17 @@
     <link rel="stylesheet" href="/css/top.css">
     <title>記事一覧</title>
 </head>
+
 <body>
     <main>
         @forelse ($articles as $article)
-            <article>
-                <p class="title">{{ $article->title }}</p>
-                <p class="posted_on">{{ $article->created_at->format('Y-m-d') }}</p>
-                <ul class="tag_list">
-                    @foreach ($article->tags as $tag)
-                        <li class="tag">{{ $tag->name }}</li>
-                    @endforeach
+        <article>
+            <p class="title">{{ $article->title }}</p>
+            <p class="posted_on">{{ $article->created_at->format('Y-m-d') }}</p>
+            <ul class="tag_list">
+                @foreach ($article->tags as $tag)
+                <li class="tag">{{ $tag->name }}</li>
+                @endforeach
                 <p class="contents">{{ $article->text }}</p>
                 @if ($article->movie_url)
                 @php
@@ -29,24 +31,21 @@
                     <iframe width="80%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 @endif
-                <a href="{{ route('article.delete',$article->id) }}" class="btn btn-danger"onclick="return confirm('本当に削除しますか？');">削除</a>
-            </article>
+                <a href="{{ route('article.delete',$article->id) }}" class="btn btn-danger" onclick="return confirm('本当に削除しますか？');">削除</a>
+        </article>
         @empty
-            <p>記事がありません。</p>
+        <p>記事がありません。</p>
         @endforelse
         <!-- ページネーションリンク -->
-         {{ $articles->appends(request()->except('page'))->links() }}
+        {{ $articles->appends(request()->except('page'))->links() }}
     </main>
     <footer>
-    <ul>
-      <li class="foot"><img src="/image/知恵袋アイコン.png"><a href="{{route('qestionCreate')}}">知恵袋<br>投稿</a></li>
-      <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/記事アイコン.png"><a href="{{route('articleCreate')}}">記事<br>投稿</a></li>
-      <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('question.index')}}">知恵袋<br>一覧</a></li>
-      <li class="foot2"><img src="/image/Line.png"></li>
-      <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}">記事<br>一覧</a></li>
-    </ul>
-  </footer>
+        <ul>
+            <li class="foot"><img src="/image/知恵袋一覧アイコン.png"><a href="{{route('adminquestion.index')}}">知恵袋<br>削除</a></li>
+            <li class="foot2"><img src="/image/Line.png"></li>
+            <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('adminarticle.index')}}">記事<br>削除</a></li>
+        </ul>
+    </footer>
 </body>
+
 </html>
