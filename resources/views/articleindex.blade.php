@@ -12,11 +12,23 @@
 <body>
     <header>
         <a href="{{route('index')}}">アプリ名</a>
-        <a href="{{route('login')}}">
-            <p>ログイン</p>
-        </a>
+        @auth
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
+                <p>ログアウト</p>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a href="{{ route('login') }}"><p>ログイン</p></a>
+        @endauth
     </header>
     <main>
+        @if (session('status'))
+            <script>
+                window.flashMessage = '{{ session('status') }}';
+            </script>
+        @endif
         <p class="page_title">記事一覧</p>
         <div class="tag-buttons">
             <form id="tag-filter-form" method="GET" action="{{ route('article.index') }}">
@@ -35,9 +47,9 @@
             <div class="page">
                 <p class="posted_on">{{ $article->created_at->format('Y-m-d') }}</p>
                 <a href="{{ route('articleAll', $article->id) }}" class="title">{{ $article->title }}</a>
-                <a href="{{ route('articleAll', $article->id) }}" class="">{{ $article->popular }}</a>
                 <a href="{{ route('articleAll', $article->id) }}" class="link">></a>
             </div>
+            <p class="popular">{{ $article->popular }}いいね</p>
             <ul class="tags">
                 @foreach ($article->tags as $tag)
                 <li class="tag">{{ $tag->name }}</li>
@@ -73,6 +85,6 @@
                 </a></li>
         </ul>
     </footer>
+    <script src="/js/logout.js"></script>
 </body>
-
 </html>
