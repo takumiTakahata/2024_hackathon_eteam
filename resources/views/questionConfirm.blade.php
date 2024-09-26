@@ -3,7 +3,7 @@
 <header>
   <a href="{{route('index')}}">アプリ名</a>
         @auth
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -14,6 +14,11 @@
         @endauth
 </header>
   <main>
+    @if (session('status'))
+      <script>
+        window.flashMessage = '{{ session('status') }}';
+      </script>
+    @endif
     <p class="page_title">知恵袋確認</p>
     <div class="confirm">
       <form action="{{ route('question.add') }}" method="POST">
@@ -48,3 +53,4 @@
       <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}"><p>記事</p><p>一覧</p></a></li>
     </ul>
   </footer>
+  <script src="/js/logout.js"></script>
