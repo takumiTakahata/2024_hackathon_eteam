@@ -47,9 +47,9 @@
             <div class="page">
                 <p class="posted_on">{{ $article->created_at->format('Y-m-d') }}</p>
                 <a href="{{ route('articleAll', $article->id) }}" class="title">{{ $article->title }}</a>
-                <a href="{{ route('articleAll', $article->id) }}" class="">{{ $article->popular }}</a>
                 <a href="{{ route('articleAll', $article->id) }}" class="link">></a>
             </div>
+            <p class="popular">{{ $article->popular }}いいね</p>
             <ul class="tags">
                 @foreach ($article->tags as $tag)
                 <li class="tag">{{ $tag->name }}</li>
