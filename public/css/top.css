@@ -173,12 +173,14 @@ a.btn-solid:hover {
 }
 /* footer */
 .foot {
+    margin: 0;
+    width: 25%;
     display: flex;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
-.foot a {
-    text-decoration: none;
+.foot p {
+    display: inline;
 }
 
 .foot2 {
@@ -187,10 +189,42 @@ a.btn-solid:hover {
 
 ul {
     display: flex;
+    justify-content: space-around;
+}
+
+img {
+    width: auto;
+    height: auto;
+}
+@media (max-width: 600px) {
+    footer,header{
+        height: 5%;
+        background-color: #6093F8;
+    }
+/* footer */
+.foot {
+    height: auto;
+    display: flex;
+    font-size: 0.7rem;
+    flex-wrap: nowrap;
+}
+
+.foot a {
+    text-decoration: none;
+}
+
+.foot2 {
+    margin: 0;
+    width: auto;
+}
+
+ul {
+    display: flex;
     justify-content: center;
 }
 
 img {
-    width: 30%;
-    height: 40%;
+    width: auto;
+    height: auto;
+}
 }
