@@ -11,7 +11,7 @@
     <header>
         <p>アプリ名</p>
         @auth
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -22,6 +22,11 @@
         @endauth
     </header>
     <main>
+        @if (session('status'))
+            <script>
+                window.flashMessage = '{{ session('status') }}';
+            </script>
+        @endif
         <div class="explanation">
             <p>一人暮らしに苦労している方々の</p>
             <p>悩みの解決や生活を充実させる</p>
@@ -121,5 +126,6 @@
       <li class="foot"><img src="/image/記事一覧アイコン.png"><a href="{{route('article.index')}}"><p>記事</p><p>一覧</p></a></li>
     </ul>
   </footer>
+  <script src="/js/logout.js"></script>
 </body>
 </html>
