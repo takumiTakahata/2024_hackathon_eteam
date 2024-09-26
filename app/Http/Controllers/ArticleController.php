@@ -12,8 +12,12 @@ class ArticleController extends Controller
 {
     public function articleCreate(Request $request)
     {
-        $tags = Tag::all();
-        return view('article', ['tags' => $tags]);
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('message', '投稿には、ログインをしてください。');
+        } else {
+            $tags = Tag::all();
+            return view('article', ['tags' => $tags]);
+        }
     }
 
     public function articleConfirm(Request $request)
