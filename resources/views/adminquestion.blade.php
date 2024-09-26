@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <a href="{{route('adminarticle.index')}}">アプリ名</a>
+        <a href="{{route('adminarticle.index')}}">カジの輪</a>
         @auth
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>

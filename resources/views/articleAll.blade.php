@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <a href="{{route('index')}}">アプリ名</a>
+        <a href="{{route('index')}}">カジの輪</a>
         @auth
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logout();">
                 <p>ログアウト</p>
@@ -40,6 +40,7 @@
                 <li>タグはありません</li>
                 @endforelse
             </ul>
+            <p class="content">{{ $article -> text}}</p>
             @if ($article->movie_url)
             @php
             // YouTubeのURLをembed用に変換
@@ -48,12 +49,10 @@
             @endphp
             <!-- 動画埋め込み -->
             <div class="youtube-video">
-                <iframe width="80%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+                <iframe width="90%" height="50%" src="{{ $youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
             </div>
             @endif
-            <!-- 内容確認 -->
-            <p class="content">{{ $article -> text}}</p>
-                    <button type="button" class="good_button" onclick="popularAdd()">
+            <button type="button" class="good_button" onclick="popularAdd()">
             <i class="fas fa-thumbs-up"></i><p>いいね</p></button>
         </div>
         <a href="{{route('article.index')}}" class="article_return">＜　記事一覧に戻る</a>
@@ -71,5 +70,6 @@
   </footer>
 </body>
 <script src="{{ asset('js/popular.js') }}">
+<script src="/js/logout.js"></script>
 </script>
 </html>
