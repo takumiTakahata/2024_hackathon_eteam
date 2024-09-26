@@ -11,7 +11,16 @@
 <body>
     <header>
         <a href="{{route('index')}}">アプリ名</a>
-        <a href="{{route('login')}}"><p>ログイン</p></a>
+        @auth
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <p>ログアウト</p>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a href="{{ route('login') }}"><p>ログイン</p></a>
+        @endauth
     </header>
     <main>
         <p class="page_title">投稿記事</p>
